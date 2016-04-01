@@ -3,7 +3,7 @@ import javax.swing.JFileChooser;
 import java.io.*;
 import java.sql.*;
 
-public class csvImportScript {
+public class csvImporter {
 	public static void main(String[] args) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -16,7 +16,7 @@ public class csvImportScript {
 		File file = filechooser.getSelectedFile();
 		
 		try(Scanner sc = new Scanner(file)) {
-			String[] label = sc.nextLine().split(",");
+			sc.nextLine();
 
 			while(sc.hasNextLine()) {
 				String[] col = sc.nextLine().split(",");
