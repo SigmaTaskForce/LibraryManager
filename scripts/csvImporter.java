@@ -11,6 +11,17 @@ public class csvImporter {
 			e.printStackTrace();
 		}
 
+		Credentials c = null;
+
+		if(args.length == 3) {
+			c = new Credentials(args[0],args[1],args[2]);
+		}
+
+		else {
+			System.out.println("Usage:\n\njava -cp /path/to/mysql-connector.jar:. csvImporter <MySQL-ipaddr> <MySQL-username> <MySQL-password>");
+			System.exit(0);
+		}
+
 		JFileChooser filechooser = new JFileChooser();
 		filechooser.showOpenDialog(null);
 		File file = filechooser.getSelectedFile();
@@ -20,14 +31,15 @@ public class csvImporter {
 
 			while(sc.hasNextLine()) {
 				String[] col = sc.nextLine().split(",");
-				String domain = file.getName().split(".csv")[0];			
 
 				SQLUpdate("CREATE DATABASE Library");
 				SQLUpdate("Library","CREATE TABLE BookDetails(AccNo text,Title text,Publisher text,Domain text,Year int,Price int,Edition text)");
 				SQLUpdate("Library","CREATE TABLE Author(AccNo text,AuthorName text)");
-				SQLUpdate("Library","INSERT INTO BookDetails VALUES('"+col[0]+"','"+col[1]+"','"+col[2]+"','"+domain+"',"+col[3]+","+col[4]+",'"+col[5]+"')");
-				for(int i = 6; i < col.length; i++)
-					SQLUpdate("Library","INSERT INTO Author VALUES('"+col[0]+"','"+col[i]+"')");
+				SQLUpdate("Library","INSERT INTO BookDetails VALUES('"+col[0]+"','"+col[1]+"','"+col[2]+"','"+col[3]+"',"+col[4]+","+col[5]+",'"+col[6]+"')");
+				for(int i = 7; i < col.length; i++) {
+					if(!col[i].equals("") && !col[i].equals("NULL"))
+						SQLUpdate("Library","INSERT INTO Author VALUES('"+col[0]+"','"+col[i]+"')");
+				}
 			}
 		
 		} catch(Exception e) {
@@ -35,14 +47,8 @@ public class csvImporter {
 		}
 	}
 
-	static boolean testServerConnection(String ip,String user,String password) throws SQLException {
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://"+ip,user,password)) {
-                        return conn != null;
-                }
-        }
-
 	static void SQLUpdate(String update) {
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost","test","test")) {
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://"+Credentials.ip,Credentials.username,Credentials.password)) {
                         try(Statement stmt = conn.createStatement()) {
                                 stmt.executeUpdate(update);
                         } catch(SQLException e) {
@@ -54,7 +60,7 @@ public class csvImporter {
         }
 
 	static void SQLUpdate(String name,String update) {
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/"+name,"test","test")) {
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://"+Credentials.ip+name,Credentials.username,Credentials.password)) {
                         try(Statement stmt = conn.createStatement()) {
                                 stmt.executeUpdate(update);
                         } catch(SQLException e) {
@@ -64,4 +70,16 @@ public class csvImporter {
                 	e.printStackTrace();
                 }
         }
+}
+
+class Credentials {
+	Credentials(String ipaddr, String user, String pass) {
+		ip = ipaddr;
+		username = user;
+		password = pass;
+	}
+
+	public static String ip;
+	public static String username;
+	public static String password;
 }
