@@ -37,12 +37,17 @@ public class borrowDetails extends javax.swing.JFrame {
 
         backButton.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         backButton.setText("<");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Books Issued        ");
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        tableModel = new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,10 +69,16 @@ public class borrowDetails extends javax.swing.JFrame {
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
-        });
+        };
+	table.setModel(tableModel);
         tableScroll.setViewportView(table);
 
         printButton.setText("Print");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +87,7 @@ public class borrowDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableScroll)
+                    .addComponent(tableScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
@@ -85,7 +96,7 @@ public class borrowDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(325, 325, 325)
                 .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(325, 325, 325))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,12 +108,28 @@ public class borrowDetails extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(tableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
+	setLocationRelativeTo(null);
+	populateTable();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+	setVisible(false);
+	dispose();
+	MainUI.main(null);
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+	try {
+		table.print();
+	} catch(java.awt.print.PrinterException e) {
+		e.printStackTrace();
+	}
+    }//GEN-LAST:event_printButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,12 +141,7 @@ public class borrowDetails extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+		util.setLookAndFeel();
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(borrowDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -139,9 +161,28 @@ public class borrowDetails extends javax.swing.JFrame {
         });
     }
 
+    private static void populateTable() {
+	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE Returned='no'");
+	String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE Returned='no'");
+	String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed WHERE Returned='no'");
+	String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed WHERE Returned='no'");
+	String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed WHERE Returned='no'");
+	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE Returned='no'");
+
+	for(int i = 0; i < accNo.length; i++) {
+		String[] row = new String[] { 
+			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")))
+		};
+		tableModel.addRow(row);
+	}
+
+	table.setModel(tableModel);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JButton printButton;
+    private javax.swing.table.DefaultTableModel tableModel;
     private javax.swing.JTable table;
     private javax.swing.JScrollPane tableScroll;
     private javax.swing.JLabel title;

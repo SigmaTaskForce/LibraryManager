@@ -13,9 +13,8 @@ public class util {
                 try(Scanner sc = new Scanner(file)) {
                 	while(sc.hasNextLine()) {
                         	temp = sc.nextLine();
-                                if(temp.startsWith("#"))
-                                	;
-                                if(temp.split("=")[0].equals(choice)) {
+
+                                if(!temp.startsWith("#") && temp.split("=")[0].equals(choice)) {
                                         temp = temp.split("=")[1];
                                         break;
                                 }
@@ -29,42 +28,42 @@ public class util {
 
 	static String[] SQLQuery(String name,String query) {
 		List<String> list=new ArrayList<String>();
-		
+
 		try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"))) {
 			try(Statement stmt=conn.createStatement()) {
 				try(ResultSet rs=stmt.executeQuery(query)) {
 					String[] temp=query.split(" ");
-					
+
 					if(temp[1].equals("*")) {
 						String table="";
-						
+
 						for(int i=0;i<temp.length;i++)
 							if(temp[i].equals("FROM")) {
 								table=temp[i+1];
 								break;
 							}
-						
+
 						String[] column=util.listColumns(name,table);
 						while (rs.next()) {
 							for(int i=0;i<column.length;i++)
     							list.add(rs.getString(column[i]));
 						}
 					}
-					
+
 					else {
 						int i;
     						for(i=0;i<temp.length;i++)
     							if(temp[i].equals("AS"))
     								break;
-    					
+
     						while (rs.next()) {
 							if(i<temp.length)
     								list.add(rs.getString(temp[i+1]));
-    						
+
     							else {
     								if(temp[1].equals("DISTINCT"))
     									list.add(rs.getString(temp[2]));
-    							
+
     								else
     									list.add(rs.getString(temp[1]));
     							}
@@ -79,7 +78,7 @@ public class util {
 		} catch(SQLException e) {
     			e.printStackTrace();
 		}
-		
+
 		return list.toArray(new String[list.size()]);
 	}
 
@@ -106,36 +105,33 @@ public class util {
     			e.printStackTrace();
 		}
 	}
-
 	static String getDate() {
-		int d,m,y;
-		String dd,mm,yy;
-		Calendar time=Calendar.getInstance();
-		
-		d=time.get(Calendar.DAY_OF_MONTH);
-		m=time.get(Calendar.MONTH)+1;
-		y=time.get(Calendar.YEAR);
-		
-		if(d<=9)
-			dd="0"+Integer.toString(d);
-		else
-			dd=Integer.toString(d);
-		if(m<=9)
-			mm="0"+Integer.toString(m);
-		else
-			mm=Integer.toString(m);
-		if(y<=9)
-			yy="0"+Integer.toString(y);
-		else
-			yy=Integer.toString(y);
-		
-		return (yy+"_"+mm+"_"+dd);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+                return dateFormat.format(Calendar.getInstance().getTime());
+	}
+
+	static String getDate(String date, int days) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+                Calendar calendar = new GregorianCalendar();
+                Date theDate = null;
+
+                try {
+                        theDate = dateFormat.parse(date);
+                } catch(ParseException e) {
+                        e.printStackTrace();
+                }
+
+                calendar.setTime(theDate);
+		calendar.add(Calendar.DATE, days);
+
+		return dateFormat.format(calendar.getTime());
 	}
 
 	static String getDay() {
 		Calendar time=Calendar.getInstance();
 		int i=time.get(Calendar.DAY_OF_WEEK);
-		
+
 		if(i==1)
 			return "Sunday";
 		if(i==2)
@@ -172,19 +168,19 @@ public class util {
 	}
 
 	static String getDay(String date) {
-		SimpleDateFormat format=new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		Calendar calendar=new GregorianCalendar();
-		java.util.Date theDate=null;
-		
+		Date theDate=null;
+
 		try {
-    		theDate=format.parse(date);
+    			theDate=format.parse(date);
 		} catch(ParseException e) {
 			e.printStackTrace();
 		}
     	
-    	calendar.setTime(theDate);
+    		calendar.setTime(theDate);
 		int i=calendar.get(Calendar.DAY_OF_WEEK);
-		
+
 		if(i==1)
 			return "Sunday";
 		if(i==2)
@@ -224,10 +220,10 @@ public class util {
 		int h,m;
 		String hh,mm,a;
 		Calendar time=Calendar.getInstance();
-		
+
 		h=time.get(Calendar.HOUR_OF_DAY);
 		m=time.get(Calendar.MINUTE);
-		
+
 		if(h<=9)
 			hh="0"+Integer.toString(h);
 		else
@@ -238,5 +234,15 @@ public class util {
 			mm=Integer.toString(m);
 		
 		return (hh+":"+mm);
+	}
+
+	static void setLookAndFeel() {
+	String osName=System.getProperty("os.name").toLowerCase();
+
+		if(osName.startsWith("windows"))
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+
+		else
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
 	}
 }
