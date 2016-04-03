@@ -78,14 +78,14 @@ public class IdStatus extends javax.swing.JFrame {
 
             },
             new String [] {
-                "AccNo", "Title", "Publisher", "Return Date"
+                "AccNo", "Title", "Publisher", "Return Date", "Overdue"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -146,6 +146,7 @@ public class IdStatus extends javax.swing.JFrame {
         );
 
         pack();
+	setLayoutRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -164,10 +165,15 @@ public class IdStatus extends javax.swing.JFrame {
 	String className = util.SQLQuery("Library","SELECT DISTINCT Class FROM Borrowed WHERE MemberId='"+idNo+"'")[0];
 
 	tableModel.setRowCount(0);
-	
+
 	for(int i = 0; i < accNo.length; i++) {
+		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
+		String overdue = "no";
+
+		if(util.getDate().compareTo(returnDate)>0)
+			overdue = "yes";
 		String[] row = new String[] {
-			accNo[i], bookTitle[i], bookPublisher[i], util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")))
+			accNo[i], bookTitle[i], bookPublisher[i], returnDate, overdue
 		};
 		tableModel.addRow(row);
 	}

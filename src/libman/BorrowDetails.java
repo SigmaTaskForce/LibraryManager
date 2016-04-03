@@ -52,14 +52,14 @@ public class borrowDetails extends javax.swing.JFrame {
 
             },
             new String [] {
-                "AccNo", "Title", "Student RegNo", "Student Name", "Class", "Return Date"
+                "AccNo", "Title", "Student RegNo", "Student Name", "Class", "Return Date", "Overdue"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -170,8 +170,14 @@ public class borrowDetails extends javax.swing.JFrame {
 	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE Returned='no'");
 
 	for(int i = 0; i < accNo.length; i++) {
+		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
+                String overdue = "no";
+
+                if(util.getDate().compareTo(returnDate)>0)
+                        overdue = "yes";
+
 		String[] row = new String[] { 
-			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")))
+			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], util.getDate(borrowDate[i], returnDate, overdue
 		};
 		tableModel.addRow(row);
 	}
