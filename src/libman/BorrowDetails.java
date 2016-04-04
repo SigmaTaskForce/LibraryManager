@@ -9,7 +9,7 @@ package libman;
  *
  * @author rahul
  */
-public class borrowDetails extends javax.swing.JFrame {
+public class BorrowDetails extends javax.swing.JFrame {
 
     /**
      * Creates new form borrowDetails
@@ -161,7 +161,7 @@ public class borrowDetails extends javax.swing.JFrame {
         });
     }
 
-    private static void populateTable() {
+    private void populateTable() {
 	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE Returned='no'");
 	String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE Returned='no'");
 	String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed WHERE Returned='no'");

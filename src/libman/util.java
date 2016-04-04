@@ -26,6 +26,28 @@ public class util {
 		return temp;
 	}
 
+	static String[] listColumns(String name,String table) {
+                List<String> list=new ArrayList<String>();
+
+                try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"))) {
+                        try(Statement stmt=conn.createStatement()) {
+                                try(ResultSet rs=stmt.executeQuery("DESC "+table)) {
+                                        while (rs.next()) {
+                                        	list.add(rs.getString("Field"));
+                                        }
+                                } catch(SQLException e) {
+                                        e.printStackTrace();
+                                }
+                        } catch(SQLException e) {
+                                e.printStackTrace();
+                        }
+                } catch(SQLException e) {
+                	e.printStackTrace();
+                }
+
+                return list.toArray(new String[list.size()]);
+        }
+
 	static String[] SQLQuery(String name,String query) {
 		List<String> list=new ArrayList<String>();
 
@@ -114,7 +136,7 @@ public class util {
 	static String getDate(String date, int days) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
                 Calendar calendar = new GregorianCalendar();
-                Date theDate = null;
+                java.util.Date theDate = null;
 
                 try {
                         theDate = dateFormat.parse(date);
@@ -170,7 +192,7 @@ public class util {
 	static String getDay(String date) {
 		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		Calendar calendar=new GregorianCalendar();
-		Date theDate=null;
+		java.util.Date theDate=null;
 
 		try {
     			theDate=format.parse(date);
