@@ -104,6 +104,25 @@ public class util {
 		return list.toArray(new String[list.size()]);
 	}
 
+
+    	public static ResultSet getResult(String name,String q){
+        	Connection conn = null;
+        	Statement stmt = null;
+            	try {
+                	conn = DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"));
+                	stmt = conn.createStatement();
+                	//String sql = "SELECT * FROM Author";
+                	ResultSet rs = stmt.executeQuery(q);
+                	//fun(rs);
+                	return rs;
+                	//rs.close();
+        	} catch(Exception e){
+      			//Handle errors for Class.forName
+            		e.printStackTrace();
+        	}
+        	return null;
+    	}
+
 	static void SQLUpdate(String update) {
 		try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP"),util.getServerData("Username"),util.getServerData("Password"))) {
 			try(Statement stmt=conn.createStatement()) {
