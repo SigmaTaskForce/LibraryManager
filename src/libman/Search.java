@@ -103,14 +103,14 @@ public class Search extends javax.swing.JFrame {
 
             },
             new String [] {
-                "AccNO", "Title", "Author", "Publisher", "Price"
+                "AccNO", "Title", "Author", "Publisher", "Price", "Domain"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -225,9 +225,9 @@ public class Search extends javax.swing.JFrame {
        }   
     }                                        
     private int byAccNo(String key){
-        String q = "select AccNo, Title, Publisher, Price from BookDetails where AccNo like '%" + key + "%';";
+        String q = "select AccNo, Title, Publisher, Price ,Domain from BookDetails where AccNo like '%" + key + "%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        String[] row = {null, null, null, null, null, null};
+        String[] row = {null, null, null, null, null, null ,null};
         ResultSet r = getResult("Library", q);
         try {
                	while (r.next()) {
@@ -238,6 +238,7 @@ public class Search extends javax.swing.JFrame {
                    row[2] = author;
                    row[3] = r.getString("Publisher");
                    row[4] = r.getString("Price");
+                   row[5] = r.getString("Domain");
                    table.addRow(row);
                }
         } catch (SQLException se) {
@@ -249,7 +250,7 @@ public class Search extends javax.swing.JFrame {
     	return 1;
     }
     private int byName(String key){
-        String q = "select AccNo, Title, Publisher, Price from BookDetails where Title like '%"+key+"%';";
+        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Title like '%"+key+"%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null};
        	ResultSet r = getResult("Library", q);
@@ -262,6 +263,7 @@ public class Search extends javax.swing.JFrame {
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
                 row[4] = r.getString("Price");
+                row[5] = r.getString("Domain");
                 table.addRow(row);
             }
         }catch(SQLException se){
@@ -275,7 +277,7 @@ public class Search extends javax.swing.JFrame {
     private int byDomain(String key){
         String q = "select AccNo, Title, Publisher, Price from BookDetails where Domain like '%"+key+"%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        String[] row = {null, null, null, null, null, null};
+        String[] row = {null, null, null, null, null, null, null};
         ResultSet r = getResult("Library", q);
            try{
             while(r.next()){
@@ -286,6 +288,7 @@ public class Search extends javax.swing.JFrame {
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
                 row[4] = r.getString("Price");
+                row[5] = r.getString("Domain");
                 table.addRow(row);
             }
         }catch(SQLException se){
@@ -380,4 +383,5 @@ public class Search extends javax.swing.JFrame {
         
     }
 }
+
 
