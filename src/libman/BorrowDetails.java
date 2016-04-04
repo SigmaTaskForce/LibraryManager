@@ -177,7 +177,7 @@ public class borrowDetails extends javax.swing.JFrame {
                         overdue = "yes";
 
 		String[] row = new String[] { 
-			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], util.getDate(borrowDate[i], returnDate, overdue
+			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], returnDate, overdue
 		};
 		tableModel.addRow(row);
 	}
