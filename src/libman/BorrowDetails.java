@@ -166,10 +166,8 @@ public class BorrowDetails extends javax.swing.JFrame {
 	for(int i = 0; i < accNo.length; i++) {
 		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
                 String overdue = "no";
-
                 if(util.getDate().compareTo(returnDate)>0)
                         overdue = "yes";
-
 		String[] row = new String[] { 
 			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], returnDate, overdue
 		};

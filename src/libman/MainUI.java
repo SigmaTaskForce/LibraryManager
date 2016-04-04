@@ -57,7 +57,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Edit Database");
+        jButton4.setText("Return Book");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -154,6 +154,9 @@ public class MainUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
+	setVisible(false);
+        dispose();
+        ReturnBook.main(null);
         
     }                                        
 

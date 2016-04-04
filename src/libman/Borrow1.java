@@ -220,7 +220,7 @@ public class Borrow1 extends javax.swing.JFrame {
         MainUI.main(null);
     }                                                                                 
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private int jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String mid, name, Class, accno, q, n, author;
         String[] row = {null,null,null,null};
@@ -230,12 +230,21 @@ public class Borrow1 extends javax.swing.JFrame {
         Class = jTextField4.getText();
   
         accno = jTextField2.getText();
-        q = "insert into Borrowed values('"+accno+"','"+mid+"','"+name+"','"+Class+"','"+util.getDate()+"','no');";
-        util.SQLUpdate("Library", q);
         q = "select AccNo,Title,Publisher from BookDetails where AccNo like '"+accno+"';";
         n = "select AuthorName from Author where AccNo like '"+accno+"';";
         ResultSet r = util.getResult("Library", q);
+	try {	
+		if (!r.next() ) {
+	    		return 0;
+		}
+		r.beforeFirst();
+	} catch(Exception e){
+		e.printStackTrace();	
+	}
+	
         author = getAuthor(util.getResult("Library", n));
+	 q = "insert into Borrowed values('"+accno+"','"+mid+"','"+name+"','"+Class+"','"+util.getDate()+"','no');";
+        util.SQLUpdate("Library", q);
         try{
             while(r.next()){
             row[0] = r.getString("AccNo");
@@ -250,7 +259,7 @@ public class Borrow1 extends javax.swing.JFrame {
             e.printStackTrace();
         }
         table.addRow(row);
-        
+        return 1;
     }                                        
     private String getAuthor(ResultSet rs){
         String authors="";
@@ -275,7 +284,7 @@ public class Borrow1 extends javax.swing.JFrame {
         String val = (String)table.getValueAt(a-1, 0);
         String q="delete from Borrowed where AccNo='"+ val +"'";
         table.removeRow(a-1);
-        jTextField2.requestFocus(true);
+        jTextField2.requestFocus();
         
     }                                        
 
