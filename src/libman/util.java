@@ -95,7 +95,7 @@ public class util {
 	}
 
 	static void SQLUpdate(String name,String update) {
-		try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+util.getClass(name),util.getServerData("Username"),util.getServerData("Password"))) {
+		try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"))) {
 			try(Statement stmt=conn.createStatement()) {
 				stmt.executeUpdate(update);
 			} catch(SQLException e) {
