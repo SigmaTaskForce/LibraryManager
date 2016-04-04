@@ -275,7 +275,7 @@ public class Search extends javax.swing.JFrame {
     	return 1;
     }
     private int byDomain(String key){
-        String q = "select AccNo, Title, Publisher, Price from BookDetails where Domain like '%"+key+"%';";
+        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Domain like '%"+key+"%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null, null};
         ResultSet r = getResult("Library", q);
