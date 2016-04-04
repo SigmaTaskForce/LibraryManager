@@ -30,7 +30,7 @@ public class csvImporter {
 			sc.nextLine();
 
 			while(sc.hasNextLine()) {
-				String[] col = sc.nextLine().split(",");
+				String[] col = sc.nextLine().split("|");
 
 				SQLUpdate("CREATE DATABASE Library");
 				SQLUpdate("Library","CREATE TABLE BookDetails(AccNo text,Title text,Publisher text,Domain text,Year int,Price int,Edition text)");
