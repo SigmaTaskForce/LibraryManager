@@ -6,7 +6,6 @@
 package libman;
 
 import java.sql.SQLException;
-import static libman.MainUIold.testServerConnection;
 
 /**
  *
@@ -51,6 +50,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+	jButton4.setText("Edit Database");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -129,6 +129,7 @@ public class MainUI extends javax.swing.JFrame {
         );
 
         pack();
+	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -173,29 +174,12 @@ public class MainUI extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-         try {
+       	try {
 		Class.forName("com.mysql.jdbc.Driver");
-        }catch(ClassNotFoundException e) {
+        	util.setLookAndFeel();
+	} catch(Exception e) {
         	e.printStackTrace();
         }
-      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
