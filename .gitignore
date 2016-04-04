@@ -1,1 +1,3 @@
 *.class
+*.form
+server.cfg
