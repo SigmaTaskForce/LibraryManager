@@ -258,7 +258,7 @@ public class util {
 		return (hh+":"+mm);
 	}
 
-	static void setLookAndFeel() {
+	static void setLookAndFeel() throws Exception {
 	String osName=System.getProperty("os.name").toLowerCase();
 
 		if(osName.startsWith("windows"))
