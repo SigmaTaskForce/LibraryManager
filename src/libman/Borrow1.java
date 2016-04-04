@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package libman;
-import static libman.util.*;
+
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author root
@@ -18,8 +19,6 @@ public class Borrow1 extends javax.swing.JFrame {
      */
     public Borrow1() {
         initComponents();
-        String a = util.getDate();
-        jLabel4.setText(a);
     }
 
     /**
@@ -68,8 +67,8 @@ public class Borrow1 extends javax.swing.JFrame {
 
         jLabel3.setText("Return Date :");
 
-        String date = util.getDate(util.getDate(), Integer.parseInt(util.getServerData("Borrowal Period")));
-        jLabel4.setText(date);
+        String returnDate = util.getDate(util.getDate(), Integer.parseInt(util.getServerData("Borrowal Period")));
+	jLabel4.setText(returnDate);
 
         jLabel5.setText("Member id ");
 
