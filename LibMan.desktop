@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=LibMan
+Comment=Library-Manager 
+Exec=/root/gitdir/LibraryManager/src/start.sh
+Icon=/root/gitdir/LibraryManager/src/icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;
