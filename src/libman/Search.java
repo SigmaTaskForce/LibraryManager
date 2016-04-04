@@ -23,9 +23,10 @@ public class Search extends javax.swing.JFrame {
         initComponents();
         fun();
         jRadioButton1.setSelected(true);
+	
     }
       String[] rbgroup={"Name","Author","Domain","AccNo"};
-      String s="null";
+      String s="Name";
       
     /**
      * This method is called from within the constructor to initialize the form.
@@ -227,7 +228,6 @@ public class Search extends javax.swing.JFrame {
         String q = "select AccNo, Title, Publisher, Price from BookDetails where AccNo like '%" + key + "%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null};
-        System.out.println(q);
         ResultSet r = getResult("Library", q);
         try {
                	while (r.next()) {
@@ -252,7 +252,6 @@ public class Search extends javax.swing.JFrame {
         String q = "select AccNo, Title, Publisher, Price from BookDetails where Title like '%"+key+"%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null};
-        System.out.println(q);
        	ResultSet r = getResult("Library", q);
 	try{
             while(r.next()){
@@ -277,7 +276,6 @@ public class Search extends javax.swing.JFrame {
         String q = "select AccNo, Title, Publisher, Price from BookDetails where Domain like '%"+key+"%';";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null};
-        System.out.println(q);
         ResultSet r = getResult("Library", q);
            try{
             while(r.next()){
