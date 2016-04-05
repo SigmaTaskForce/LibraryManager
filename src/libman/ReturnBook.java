@@ -176,6 +176,10 @@ public class ReturnBook extends javax.swing.JFrame {
 		if (!r.next() ) {
 			jLabel11.setText("Book not Borrowed");
 			jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+			jLabel4.setText("");
+               		jLabel8.setText("");
+              		jLabel6.setText("");
+               		jLabel10.setText("");
 	    		return 0;
 		}
 		r.beforeFirst();
