@@ -197,11 +197,16 @@ public class Search extends javax.swing.JFrame {
         MainUI.main(null);
     }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private int jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         table.setRowCount(0);
+	 jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         String key = jTextField1.getText();
+	if(key.length() < 3 ){
+		jTextField1.setForeground(new java.awt.Color(255, 0, 0));
+		return 0;	
+	}
         if (s == rbgroup[0]){
             byName(key);
         } else if (s == rbgroup[2]) {
@@ -224,7 +229,8 @@ public class Search extends javax.swing.JFrame {
                //Handle errors for Class.forName
                e.printStackTrace();
            }
-       }   
+       }
+	return 0;   
     }                                        
     private int byAccNo(String key){
         String q = "select AccNo, Title, Publisher, Price ,Domain from BookDetails where AccNo like '%" + key + "%' && AccNo not in (select AccNo from Borrowed);";
