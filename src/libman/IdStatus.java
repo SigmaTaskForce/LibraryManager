@@ -157,10 +157,10 @@ public class IdStatus extends javax.swing.JFrame {
 
     private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
 	String idNo = idInput.getText();
-	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE MemberId='"+idNo+"' AND Returned='no'");
-        String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"' AND Returned='no'");
-	String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"' AND Returned='no'");
-	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE MemberId='"+idNo+"' AND Returned='no'");
+	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE MemberId='"+idNo+"'");
+        String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"'");
+	String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"'");
+	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE MemberId='"+idNo+"'");
 	String studentName = util.SQLQuery("Library","SELECT DISTINCT Name FROM Borrowed WHERE MemberId='"+idNo+"'")[0];
 	String className = util.SQLQuery("Library","SELECT DISTINCT Class FROM Borrowed WHERE MemberId='"+idNo+"'")[0];
 

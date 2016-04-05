@@ -156,12 +156,12 @@ public class BorrowDetails extends javax.swing.JFrame {
     }
 
     private void populateTable() {
-	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE Returned='no'");
-	String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE Returned='no'");
-	String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed WHERE Returned='no'");
-	String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed WHERE Returned='no'");
-	String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed WHERE Returned='no'");
-	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE Returned='no'");
+	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed");
+	String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo");
+	String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed");
+	String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed");
+	String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed");
+	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed");
 
 	for(int i = 0; i < accNo.length; i++) {
 		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
