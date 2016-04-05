@@ -243,7 +243,7 @@ public class Borrow1 extends javax.swing.JFrame {
 	}
 	
         author = getAuthor(util.getResult("Library", n));
-	 q = "insert into Borrowed values('"+accno+"','"+mid+"','"+name+"','"+Class+"','"+util.getDate()+"','no');";
+	 q = "insert into Borrowed values('"+accno+"','"+mid+"','"+name+"','"+Class+"','"+util.getDate()+"');";
         util.SQLUpdate("Library", q);
         try{
             while(r.next()){

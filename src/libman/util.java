@@ -6,6 +6,8 @@ import java.io.*;
 import java.sql.*;
 
 public class util {
+	private static Connection conn = null;
+	private static Statement stmt = null;
 	static String getServerData(String choice) {
 		String temp = "";
 		File file = new File("server.cfg");
@@ -103,23 +105,31 @@ public class util {
 
 		return list.toArray(new String[list.size()]);
 	}
+        public static void closecon(){	
+            try {
+                if(conn != null)
+			conn.close();
+		if(stmt != null)
+        	        stmt.close();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
 
 
     	public static ResultSet getResult(String name,String q){
-        	Connection conn = null;
-        	Statement stmt = null;
-            	try {
+        	try {
                 	conn = DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"));
                 	stmt = conn.createStatement();
                 	//String sql = "SELECT * FROM Author";
                 	ResultSet rs = stmt.executeQuery(q);
-                	//fun(rs);
                 	return rs;
-                	//rs.close();
-        	} catch(Exception e){
-      			//Handle errors for Class.forName
-            		e.printStackTrace();
-        	}
+			
+                } catch(Exception e){
+      			e.printStackTrace();
+        	} finally{
+					
+		}
         	return null;
     	}
 

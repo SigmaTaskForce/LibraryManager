@@ -164,7 +164,7 @@ public class ReturnBook extends javax.swing.JFrame {
         MainUI.main(null);
     }                                        
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private int jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         String accno = jTextField1.getText(),name,Class,returned,dateBorrowed,overdue;
 	jTextField1.setText("");
@@ -172,11 +172,21 @@ public class ReturnBook extends javax.swing.JFrame {
         String n = "delete from Borrowed where AccNo like '"+accno+"';";
         ResultSet r = util.getResult("Library", q);
 	util.SQLUpdate("Library",n);
+	try {	
+		if (!r.next() ) {
+			jLabel11.setText("Book not Borrowed");
+			jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+	    		return 0;
+		}
+		r.beforeFirst();
+	} catch(Exception e){
+		e.printStackTrace();	
+	}
         try {
             while(r.next()){
                name = r.getString("Name");
                Class = r.getString("Class");
-               returned = r.getString("Returned");
+               //returned = r.getString("Returned");
                dateBorrowed = r.getString("DateBorrowed");
                String returnDate = util.getDate(dateBorrowed, Integer.parseInt(util.getServerData("Borrowal Period")));
                if (returnDate.compareTo(util.getDate()) < 0) {
@@ -193,7 +203,7 @@ public class ReturnBook extends javax.swing.JFrame {
         } catch(Exception e){
             e.printStackTrace();
         }
-        
+        return 1;
         
     }                                           
 

@@ -209,13 +209,15 @@ public class Search extends javax.swing.JFrame {
         } else if (s == rbgroup[3]){
             byAccNo(key);
         } else if (s == rbgroup[1]){
-            String q = "select DISTINCT AccNo from Author where AuthorName like '%"+key+"%';",a;
+            String q = "select DISTINCT AccNo from Author where AuthorName like '%"+key+"%'&& accno not in (select accno from Borrowed);",a;
             ResultSet r = util.getResult("Library",q);
             try {
                 while (r.next()) {
                     a = r.getString("AccNo");
                     byAccNo(a);
                }
+		r.close();
+		util.closecon();
            } catch (SQLException se) {
                se.printStackTrace();
            } catch (Exception e) {
@@ -225,7 +227,7 @@ public class Search extends javax.swing.JFrame {
        }   
     }                                        
     private int byAccNo(String key){
-        String q = "select AccNo, Title, Publisher, Price ,Domain from BookDetails where AccNo like '%" + key + "%';";
+        String q = "select AccNo, Title, Publisher, Price ,Domain from BookDetails where AccNo like '%" + key + "%' && AccNo not in (select AccNo from Borrowed);";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null ,null};
         ResultSet r = getResult("Library", q);
@@ -233,7 +235,7 @@ public class Search extends javax.swing.JFrame {
                	while (r.next()) {
                    row[0] = r.getString("AccNo");
                    row[1] = r.getString("Title");
-                   String n = "select AuthorName from Author where AccNo like '"+row[0]+"';";
+                   String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && AccNo not in (select AccNo from Borrowed);";
                    String author = getAuthor(getResult("Library", n));
                    row[2] = author;
                    row[3] = r.getString("Publisher");
@@ -241,6 +243,8 @@ public class Search extends javax.swing.JFrame {
                    row[5] = r.getString("Domain");
                    table.addRow(row);
                }
+		r.close();
+		util.closecon();
         } catch (SQLException se) {
                	se.printStackTrace();
         } catch (Exception e) {
@@ -250,7 +254,7 @@ public class Search extends javax.swing.JFrame {
     	return 1;
     }
     private int byName(String key){
-        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Title like '%"+key+"%';";
+        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Title like '%"+key+"%' && accno not in (select accno from Borrowed);";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null};
        	ResultSet r = getResult("Library", q);
@@ -258,7 +262,7 @@ public class Search extends javax.swing.JFrame {
             while(r.next()){
                 row[0] = r.getString("AccNo");
                 row[1] = r.getString("Title");
-                String n = "select AuthorName from Author where AccNo like '"+row[0]+"';";
+                String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && accno not in (select accno from Borrowed);";
                 String author = getAuthor(getResult("Library", n));
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
@@ -266,6 +270,8 @@ public class Search extends javax.swing.JFrame {
                 row[5] = r.getString("Domain");
                 table.addRow(row);
             }
+	    r.close();
+	    util.closecon();
         }catch(SQLException se){
             	se.printStackTrace();
         }catch(Exception e){
@@ -275,7 +281,7 @@ public class Search extends javax.swing.JFrame {
     	return 1;
     }
     private int byDomain(String key){
-        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Domain like '%"+key+"%';";
+        String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Domain like '%"+key+"%' && accno not in (select accno from Borrowed);";
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         String[] row = {null, null, null, null, null, null, null};
         ResultSet r = getResult("Library", q);
@@ -283,7 +289,7 @@ public class Search extends javax.swing.JFrame {
             while(r.next()){
                 row[0] = r.getString("AccNo");
                 row[1] = r.getString("Title");
-                String n = "select AuthorName from Author where AccNo like '"+row[0]+"';";
+                String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && accno not in (select accno from Borrowed);";
                 String author = getAuthor(getResult("Library", n));
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
@@ -291,6 +297,8 @@ public class Search extends javax.swing.JFrame {
                 row[5] = r.getString("Domain");
                 table.addRow(row);
             }
+	    r.close();	
+	    util.closecon();
         }catch(SQLException se){
             se.printStackTrace();
         }catch(Exception e){
@@ -307,6 +315,8 @@ public class Search extends javax.swing.JFrame {
                     authors += ", ";
                 authors += rs.getString("AuthorName");
             }
+	    rs.close();
+	    util.closecon();
         }catch(SQLException se){
             se.printStackTrace();
         }catch(Exception e){
