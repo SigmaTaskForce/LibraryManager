@@ -228,13 +228,14 @@ public class Borrow1 extends javax.swing.JFrame {
         mid = jTextField3.getText();
         name = jTextField1.getText();
         Class = jTextField4.getText();
-  
+  	jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         accno = jTextField2.getText();
-        q = "select AccNo,Title,Publisher from BookDetails where AccNo like '"+accno+"';";
-        n = "select AuthorName from Author where AccNo like '"+accno+"';";
+        q = "select AccNo,Title,Publisher from BookDetails where AccNo like '"+accno+"' && accno not in (select accno from Borrowed);";
+        n = "select AuthorName from Author where AccNo like '"+accno+"' && accno not in (select accno from Borrowed);";
         ResultSet r = util.getResult("Library", q);
 	try {	
 		if (!r.next() ) {
+			jTextField2.setForeground(new java.awt.Color(255, 0, 0));
 	    		return 0;
 		}
 		r.beforeFirst();
