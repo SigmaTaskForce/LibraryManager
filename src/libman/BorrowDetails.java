@@ -55,7 +55,7 @@ public class BorrowDetails extends javax.swing.JFrame {
         	viewToggleButton.setText("Issued Books");
         viewToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printButtonActionPerformed(evt);
+                viewToggleButtonActionPerformed(evt);
             }
         });
 
@@ -227,13 +227,13 @@ public class BorrowDetails extends javax.swing.JFrame {
 
 		allBooksTableModel.setRowCount(0);
 		for(int i = 0; i < accNo.length; i++) {
-			String[] bookAuthor = util.SQLQuery("Library","SELECT AuthorName FROM Author JOIN BookDetails ON Author.AccNo=BookDetails.AccNo WHERE AccNo='"+accNo[i]+"'");
+			String[] bookAuthor = util.SQLQuery("Library","SELECT AuthorName FROM Author JOIN BookDetails ON Author.AccNo=BookDetails.AccNo WHERE Author.AccNo='"+accNo[i]+"'");
 			String allAuthors = "";
 			for(int j = 0; j < bookAuthor.length; j++) {
 				if(j > 0)
 					allAuthors += " ";
 				allAuthors += bookAuthor[j];
-				if(j < bookAuthor.length)
+				if(j < bookAuthor.length-1)
 					allAuthors += ",";
 			}
 			String[] row = new String[] {
