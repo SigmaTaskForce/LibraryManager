@@ -238,7 +238,8 @@ public class MainUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        jLabel3.setVisible(true);
+        LoginUI.main(this);
+	jLabel3.setVisible(true);
         jPasswordField1.setVisible(true);        
     }                                        
    
