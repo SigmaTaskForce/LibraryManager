@@ -1,10 +1,11 @@
-	/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package libman;
 
+import java.awt.Cursor;
 import java.sql.SQLException;
 import static libman.MainUIold.testServerConnection;
 import java.awt.Desktop;
@@ -22,9 +23,9 @@ public class MainUI extends javax.swing.JFrame {
     public MainUI() {
         initComponents();
         jLabel2.setText("<html> <u>Powered By Sigma</u> </html>");
-        jLabel3.setVisible(false);
-        jPasswordField1.setVisible(false);
-	jPasswordField1.setText("");
+        jLabel2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+//        jLabel3.setVisible(false);
+  //      jPasswordField1.setVisible(false);
     }
 
     /**
@@ -45,8 +46,6 @@ public class MainUI extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -63,14 +62,14 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Edit Database");
+        jButton4.setText("Return Books");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Borrow");
+        jButton5.setText("Borrow Books");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -97,21 +96,15 @@ public class MainUI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
         });
 
         jButton1.setText("Settings");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Enter Password");
-
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
             }
         });
 
@@ -124,9 +117,8 @@ public class MainUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 34, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,13 +132,12 @@ public class MainUI extends javax.swing.JFrame {
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)))))
+                                .addGap(39, 39, 39)))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,11 +148,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(33, 33, 33)
+                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,10 +158,10 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-        );	
-	//setLocationRelativeTo(null);
+        );
+
         pack();
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
@@ -183,12 +170,14 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
-        // BorrowDetails.main(null);
+        BorrowDetails.main(null);
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-            // TODO add your handling code here:
-        
+        // TODO add your handling code here:
+        setVisible(false);
+	dispose();
+	ReturnBook.main(null);
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -222,27 +211,27 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
     }                                    
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        String s = new String(jPasswordField1.getPassword());
+	LoginUI.main(this);    
+    }                                        
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        
+    }                                    
+  /*  void fun(){
+       // String s = new String(jPasswordField1.getPassword());
         String p = util.getServerData("Password");
-        if (s.compareTo(p) == 0){
+       // if (s.compareTo(p) == 0) {
             setVisible(false);
             dispose();
             Settings.main(null);
-        } else {
-            jPasswordField1.setText("");
+       // } else {
+         //   jPasswordField1.setText("");
         }
-    }                                               
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        LoginUI.main(this);
-	jLabel3.setVisible(true);
-        jPasswordField1.setVisible(true);        
-    }                                        
-   
+    }*/
     /**
      * @param args the command line arguments
      */
@@ -253,8 +242,8 @@ public class MainUI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-		util.setLookAndFeel();
-	} catch(Exception e){}
+            util.setLookAndFeel();
+        } catch(Exception e) {}
         //</editor-fold>
          try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -280,8 +269,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration                   
 }

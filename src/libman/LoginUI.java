@@ -29,12 +29,12 @@ public class LoginUI extends javax.swing.JFrame {
     private void initComponents() {
 
         title = new javax.swing.JLabel();
-        idinput = new javax.swing.JTextField();
-        idlabel = new javax.swing.JLabel();
-        passwordlabel = new javax.swing.JLabel();
-        accept = new javax.swing.JButton();
-        cancel = new javax.swing.JButton();
-        passwordinput = new javax.swing.JPasswordField();
+        idInput = new javax.swing.JTextField();
+        idLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        acceptButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        passwordInput = new javax.swing.JPasswordField();
         notifier = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -45,29 +45,29 @@ public class LoginUI extends javax.swing.JFrame {
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Login");
 
-        idlabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        idlabel.setText("Username:");
+        idLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        idLabel.setText("Username:");
 
-        passwordlabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        passwordlabel.setText("Password:");
+        passwordLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        passwordLabel.setText("Password:");
 
-	passwordinput.addActionListener(new java.awt.event.ActionListener() {
+	passwordInput.addActionListener(new java.awt.event.ActionListener() {
 	    public void actionPerformed(java.awt.event.ActionEvent evt) {
-		acceptActionPerformed(evt);
+		acceptButtonActionPerformed(evt);
             }
         });
 
-	accept.setText("Login");
-        accept.addActionListener(new java.awt.event.ActionListener() {
+	acceptButton.setText("Login");
+        acceptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acceptActionPerformed(evt);
+                acceptButtonActionPerformed(evt);
             }
         });
 
-        cancel.setText("Cancel");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -83,12 +83,12 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idinput)
-                            .addComponent(passwordinput)))
+                            .addComponent(idInput)
+                            .addComponent(passwordInput)))
                     .addComponent(notifier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -96,9 +96,9 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGap(69, 69, 69))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
-                .addComponent(accept)
+                .addComponent(acceptButton)
                 .addGap(48, 48, 48)
-                .addComponent(cancel)
+                .addComponent(cancelButton)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,18 +108,18 @@ public class LoginUI extends javax.swing.JFrame {
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idlabel))
+                    .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordlabel))
+                    .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(notifier, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel)
-                    .addComponent(accept))
+                    .addComponent(cancelButton)
+                    .addComponent(acceptButton))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -127,17 +127,23 @@ public class LoginUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
     	setVisible(false);
 	dispose();
     }                                      
     
-    private void acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptActionPerformed
-	previous.setVisible(false);
-	setVisible(false);
-	previous.dispose();
-	dispose();
-    }//GEN-LAST:event_acceptActionPerformed
+    private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
+	if(idInput.getText().equals(util.getServerData("Username")) && (new String(passwordInput.getPassword())).equals(util.getServerData("Password"))) {
+		Settings.main(null);
+		previous.setVisible(false);
+		setVisible(false);
+		previous.dispose();
+		dispose();
+	}
+
+	else
+		notifier.setText("Username or Password incorrect");
+    }//GEN-LAST:event_acceptButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,13 +170,13 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton accept;
-    private javax.swing.JButton cancel;
-    private javax.swing.JTextField idinput;
-    private javax.swing.JLabel idlabel;
+    private javax.swing.JButton acceptButton;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JTextField idInput;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JLabel notifier;
-    private javax.swing.JPasswordField passwordinput;
-    private javax.swing.JLabel passwordlabel;
+    private javax.swing.JPasswordField passwordInput;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel title;
     private String choice;
     private javax.swing.JFrame previous;
