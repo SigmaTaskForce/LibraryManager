@@ -282,11 +282,12 @@ public class Borrow1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         int a = table.getRowCount();
-        String val = (String)table.getValueAt(a-1, 0);
-        String q="delete from Borrowed where AccNo='"+ val +"'";
-        table.removeRow(a-1);
-        jTextField2.requestFocus();
-        
+	if(a > 0){
+        	String val = (String)table.getValueAt(a-1, 0);
+        	String q="delete from Borrowed where AccNo='"+ val +"'";
+        	table.removeRow(a-1);
+        	jTextField2.requestFocus();
+	}        
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
