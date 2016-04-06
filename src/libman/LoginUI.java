@@ -43,7 +43,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        title.setText(choice+" Login");
+        title.setText("Login");
 
         idlabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         idlabel.setText("Username:");
@@ -142,7 +142,7 @@ public class LoginUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(javax.swing.JFrame prev) {
+    public static void main(final javax.swing.JFrame prev) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
