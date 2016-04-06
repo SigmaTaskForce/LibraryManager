@@ -1,4 +1,4 @@
-/*
+	/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -50,7 +50,7 @@ public class MainUI extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Library Manager");
 
-        jButton3.setText("Books Issued");
+        jButton3.setText("Books Status");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -183,7 +183,6 @@ public class MainUI extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-        System.out.println("sxs");
         if(Desktop.isDesktopSupported()) { 
             try {
                 Desktop.getDesktop().browse(new URI("https://github.com/SigmaVEC"));
