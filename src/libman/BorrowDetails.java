@@ -32,6 +32,7 @@ public class BorrowDetails extends javax.swing.JFrame {
         tableScroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         printButton = new javax.swing.JButton();
+	viewToggleButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,9 +46,20 @@ public class BorrowDetails extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        title.setText("Books Issued        ");
+        title.setText("     Books Status");
+        
+        isViewAllBooks = false;
+        if(isViewAllBooks)
+        	viewToggleButton.setText("All Books");
+        else
+        	viewToggleButton.setText("Issued Books");
+        viewToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
 
-        tableModel = new javax.swing.table.DefaultTableModel(
+        issuedBooksTableModel = new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -70,7 +82,35 @@ public class BorrowDetails extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         };
-	table.setModel(tableModel);
+        
+        allBooksTableModel = new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "AccNo", "Title", "Author", "Publisher", "Price", "Domain"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        };
+        
+        if(isViewAllBooks)
+		table.setModel(allBooksTableModel);
+	else
+		table.setModel(issuedBooksTableModel);
         tableScroll.setViewportView(table);
 
         printButton.setText("Print");
@@ -87,34 +127,40 @@ public class BorrowDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addComponent(tableScroll)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(325, 325, 325)
                 .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(325, 325, 325))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(tableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
 	setLocationRelativeTo(null);
-	populateTable();
+	if(isViewAllBooks)
+		populateTable("allBooksTableModel");
+	else
+		populateTable("issuedBooksTableModel");
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -122,6 +168,22 @@ public class BorrowDetails extends javax.swing.JFrame {
 	dispose();
 	MainUI.main(null);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void viewToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewToggleButtonActionPerformed
+	isViewAllBooks = !(isViewAllBooks);
+
+	if(isViewAllBooks) {
+		viewToggleButton.setText("All Books");
+		populateTable("allBooksTableModel");
+		table.setModel(allBooksTableModel);
+	}
+
+	else {
+		viewToggleButton.setText("Issued Books");
+		populateTable("issuedBooksTableModel");
+		table.setModel(issuedBooksTableModel);
+	}
+    }//GEN-LAST:event_viewToggleButtonActionPerformed
 
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
 	try {
@@ -155,34 +217,68 @@ public class BorrowDetails extends javax.swing.JFrame {
         });
     }
 
-    private void populateTable() {
-	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed");
-	String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo");
-	String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed");
-	String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed");
-	String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed");
-	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed");
+    private void populateTable(String tableModelChoice) {
+    	if(tableModelChoice.equals("allBooksTableModel")) {
+		String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM BookDetails");
+		String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails");
+		String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails");
+		String[] bookPrice = util.SQLQuery("Library","SELECT Price FROM BookDetails");
+		String[] bookDomain = util.SQLQuery("Library","SELECT Domain FROM BookDetails");
 
-	for(int i = 0; i < accNo.length; i++) {
-		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
-                String overdue = "no";
-                if(util.getDate().compareTo(returnDate)>0)
-                        overdue = "yes";
-		String[] row = new String[] { 
-			accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], returnDate, overdue
-		};
-		tableModel.addRow(row);
+		allBooksTableModel.setRowCount(0);
+		for(int i = 0; i < accNo.length; i++) {
+			String[] bookAuthor = util.SQLQuery("Library","SELECT AuthorName FROM Author JOIN BookDetails ON Author.AccNo=BookDetails.AccNo WHERE AccNo='"+accNo[i]+"'");
+			String allAuthors = "";
+			for(int j = 0; j < bookAuthor.length; j++) {
+				if(j > 0)
+					allAuthors += " ";
+				allAuthors += bookAuthor[j];
+				if(j < bookAuthor.length)
+					allAuthors += ",";
+			}
+			String[] row = new String[] {
+				accNo[i], bookTitle[i], allAuthors, bookPublisher[i], bookPrice[i], bookDomain[i]
+			};
+			allBooksTableModel.addRow(row);
+		}
 	}
 
-	table.setModel(tableModel);
+	if(tableModelChoice.equals("issuedBooksTableModel")) {
+		String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed");
+		String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo");
+		String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed");
+		String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed");
+		String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed");
+		String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed");
+
+		issuedBooksTableModel.setRowCount(0);
+		for(int i = 0; i < accNo.length; i++) {
+			String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
+        	        String overdue = "no";
+        	        if(util.getDate().compareTo(returnDate)>0)
+        	                overdue = "yes";
+			String[] row = new String[] { 
+				accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], returnDate, overdue
+			};
+			issuedBooksTableModel.addRow(row);
+		}
+	}
+
+	if(isViewAllBooks)
+		table.setModel(allBooksTableModel);
+	else
+		table.setModel(issuedBooksTableModel);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JButton printButton;
-    private javax.swing.table.DefaultTableModel tableModel;
+    private javax.swing.table.DefaultTableModel issuedBooksTableModel;
+    private javax.swing.table.DefaultTableModel allBooksTableModel;
+    private javax.swing.JToggleButton viewToggleButton;
     private javax.swing.JTable table;
     private javax.swing.JScrollPane tableScroll;
     private javax.swing.JLabel title;
+    private boolean isViewAllBooks;
     // End of variables declaration//GEN-END:variables
 }
