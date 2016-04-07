@@ -164,29 +164,31 @@ public class Settings extends javax.swing.JFrame {
         String ipAddress = ipAddressInput.getText();
         String borrowalPeriod = borrowalPeriodInput.getText();
 
-        if(util.testServerConnection(ipAddress,username,password)) {
-        	File file = new File("server.cfg");
-        	file.delete();
-    		try(FileWriter fw = new FileWriter(file, true)) {
-			fw.write("Username="+username+"\n");
-			fw.write("Password="+password+"\n");
-			fw.write("Server IP="+ipAddress+"\n");
-			fw.write("Borrowal Period="+borrowalPeriod);
-		} catch(Exception e) {
-			e.printStackTrace();
+	try {
+        	if(util.testServerConnection(ipAddress,username,password)) {
+        		File file = new File("server.cfg");
+        		file.delete();
+    			try(FileWriter fw = new FileWriter(file, true)) {
+				fw.write("Username="+username+"\n");
+				fw.write("Password="+password+"\n");
+				fw.write("Server IP="+ipAddress+"\n");
+				fw.write("Borrowal Period="+borrowalPeriod);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+
+			usernameInput.setForeground(new java.awt.Color(0, 0, 255));
+			passwordInput.setForeground(new java.awt.Color(0, 0, 255));
+			ipAddressInput.setForeground(new java.awt.Color(0, 0, 255));
+		}	
+
+		else {
+			usernameInput.setForeground(new java.awt.Color(255, 0, 0));
+			passwordInput.setForeground(new java.awt.Color(255, 0, 0));
+			ipAddressInput.setForeground(new java.awt.Color(255, 0, 0));
 		}
-
-		usernameInput.setForeground(new java.awt.Color(0, 0, 255));
-		passwordInput.setForeground(new java.awt.Color(0, 0, 255));
-		ipAddressInput.setForeground(new java.awt.Color(0, 0, 255));
-		borrowalPeriodInput.setForeground(new java.awt.Color(0, 0, 255));
-	}
-
-	else {
-		usernameInput.setForeground(new java.awt.Color(255, 0, 0));
-		passwordInput.setForeground(new java.awt.Color(255, 0, 0));
-		ipAddressInput.setForeground(new java.awt.Color(255, 0, 0));
-		borrowalPeriodInput.setForeground(new java.awt.Color(255, 0, 0));
+	} catch(Exception e) {
+		e.printStackTrace();
 	}
     }//GEN-LAST:event_jButton2ActionPerformed
 

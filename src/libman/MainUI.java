@@ -5,6 +5,7 @@
  */
 package libman;
 
+import java.io.File;
 import java.awt.Cursor;
 import java.sql.SQLException;
 import static libman.MainUIold.testServerConnection;
@@ -223,10 +224,9 @@ public class MainUI extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-	if(!(new File("server.cfg").exists()))
-		Settings.main(null);
-
         try {
+		if(!(new File("server.cfg")).exists() || !util.testServerConnection(util.getServerData("Server IP"),util.getServerData("Username"),util.getServerData("Password")))
+                	Settings.main(null);
             	util.setLookAndFeel();
         } catch(Exception e) {}
         //</editor-fold>

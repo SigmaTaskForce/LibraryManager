@@ -14,8 +14,8 @@ public class LoginUI extends javax.swing.JFrame {
     /**
      * Creates new form LoginUI
      */
-    public LoginUI(javax.swing.JFrame prev) {
-        previous=prev;
+    public LoginUI(javax.swing.JFrame arg) {
+        mainUI = arg;
         initComponents();
     }
 
@@ -134,11 +134,9 @@ public class LoginUI extends javax.swing.JFrame {
     
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
 	if(idInput.getText().equals(util.getServerData("Username")) && (new String(passwordInput.getPassword())).equals(util.getServerData("Password"))) {
-		Settings.main(null);
-		previous.setVisible(false);
 		setVisible(false);
-		previous.dispose();
 		dispose();
+		SettingsMenu.main(previous);
 	}
 
 	else
@@ -148,7 +146,7 @@ public class LoginUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(final javax.swing.JFrame prev) {
+    public static void main(final javax.swing.JFrame arg) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,7 +162,7 @@ public class LoginUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginUI(prev).setVisible(true);
+                new LoginUI(arg).setVisible(true);
             }
         });
     }
@@ -180,5 +178,6 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel title;
     private String choice;
     private javax.swing.JFrame previous;
+    private javax.swing.JFrame mainUI;
     // End of variables declaration//GEN-END:variables
 }
