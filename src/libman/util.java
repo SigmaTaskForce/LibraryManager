@@ -6,8 +6,6 @@ import java.io.*;
 import java.sql.*;
 
 public class util {
-	private static Connection conn = null;
-	private static Statement stmt = null;
 	static String getServerData(String choice) {
 		String temp = "";
 		File file = new File("server.cfg");
@@ -296,4 +294,7 @@ public class util {
 		else
 			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
 	}
+
+	private static Connection conn = null;
+	private static Statement stmt = null;
 }
