@@ -136,7 +136,7 @@ public class LoginUI extends javax.swing.JFrame {
 	if(idInput.getText().equals(util.getServerData("Username")) && (new String(passwordInput.getPassword())).equals(util.getServerData("Password"))) {
 		setVisible(false);
 		dispose();
-		SettingsMenu.main(previous);
+		SettingsMenu.main(mainUI);
 	}
 
 	else
@@ -177,7 +177,6 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel title;
     private String choice;
-    private javax.swing.JFrame previous;
     private javax.swing.JFrame mainUI;
     // End of variables declaration//GEN-END:variables
 }

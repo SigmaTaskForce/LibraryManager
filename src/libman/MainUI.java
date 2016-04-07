@@ -175,7 +175,7 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
 	dispose();
-	IdStatus.main(null);
+	ReturnBook.main(null);
     }                                        
 
     private void borrowBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +189,7 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
-        ReturnBook.main(null);
+        IdStatus.main(null);
     }                                        
 
     private void searchBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +203,7 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(Desktop.isDesktopSupported()) { 
             try {
-                Desktop.getDesktop().browse(new URI("https://SigmaVEC.github.io"));
+                Desktop.getDesktop().browse(new URI("https://github.com/SigmaVEC"));
             } catch(Exception e) {
                 e.printStackTrace();
             }
