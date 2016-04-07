@@ -29,56 +29,56 @@ public class ReturnBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        backButton = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
+        accNoLabel = new javax.swing.JLabel();
+        accNoInput = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        nameOutput = new javax.swing.JLabel();
+        classLabel = new javax.swing.JLabel();
+        returnDateOutput = new javax.swing.JLabel();
+        returnDateLabel = new javax.swing.JLabel();
+        classOutput = new javax.swing.JLabel();
+        overdueLabel = new javax.swing.JLabel();
+        overdueOutput = new javax.swing.JLabel();
+        notifier = new javax.swing.JLabel();
+        titleSeparator = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setText("<");
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        backButton.setText("<");
+        backButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Return Book");
+        title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Return Book");
 
-        jLabel2.setText("AccNo");
+        accNoLabel.setText("AccNo");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        accNoInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                accNoInputActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Name  :");
+        nameLabel.setText("Name  :");
 
-        jLabel5.setText("Class   :");
+        classLabel.setText("Class   :");
 
-        jLabel7.setText("Return by:");
+        returnDateLabel.setText("Return by:");
 
-        jLabel9.setText("OverDue");
+        overdueLabel.setText("OverDue");
 
-        jLabel10.setText("");
+        overdueOutput.setText("");
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel11.setText("");
+        notifier.setForeground(new java.awt.Color(0, 0, 255));
+        notifier.setText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,37 +86,37 @@ public class ReturnBook extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(accNoLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(accNoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9))
+                            .addComponent(classLabel)
+                            .addComponent(nameLabel)
+                            .addComponent(returnDateLabel)
+                            .addComponent(overdueLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(nameOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(returnDateOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(classOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(overdueOutput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(258, 258, 258))
             .addGroup(layout.createSequentialGroup()
                 .addGap(307, 307, 307)
-                .addComponent(jLabel11)
+                .addComponent(notifier)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSeparator1)
+                .addComponent(titleSeparator)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -124,32 +124,32 @@ public class ReturnBook extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(accNoInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accNoLabel))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameLabel)
+                    .addComponent(nameOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(classLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(classOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(returnDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(returnDateOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(overdueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(overdueOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100)
-                .addComponent(jLabel11)
+                .addComponent(notifier)
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
@@ -157,58 +157,59 @@ public class ReturnBook extends javax.swing.JFrame {
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        setVisible(false);
+	setVisible(false);
 	dispose();
         MainUI.main(null);
     }                                        
 
-    private int jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private int accNoInputActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-        String accno = jTextField1.getText(),name,Class,returned,dateBorrowed,overdue;
-	jTextField1.setText("");
+        String accno = accNoInput.getText(),name,Class,returned,dateBorrowed,overdue;
+	accNoInput.setText("");
         String q = "select * from Borrowed where accno like '"+accno+"';"; 
         String n = "delete from Borrowed where AccNo like '"+accno+"';";
         ResultSet r = util.getResult("Library", q);
 	util.SQLUpdate("Library",n);
 	try {	
 		if (!r.next() ) {
-			jLabel11.setText("Book not Borrowed");
-			jLabel11.setForeground(new java.awt.Color(255, 0, 0));
-			jLabel4.setText("");
-               		jLabel8.setText("");
-              		jLabel6.setText("");
-               		jLabel10.setText("");
+			notifier.setText("Book not Borrowed");
+			notifier.setForeground(new java.awt.Color(255, 0, 0));
+			nameOutput.setText("");
+               		classOutput.setText("");
+              		returnDateOutput.setText("");
+               		overdueOutput.setText("");
 	    		return 0;
 		}
 		r.beforeFirst();
-	} catch(Exception e){
+	} catch(Exception e) {
 		e.printStackTrace();	
 	}
+
         try {
-            while(r.next()){
-               name = r.getString("Name");
-               Class = r.getString("Class");
-               //returned = r.getString("Returned");
-               dateBorrowed = r.getString("DateBorrowed");
-               String returnDate = util.getDate(dateBorrowed, Integer.parseInt(util.getServerData("Borrowal Period")));
-               if (returnDate.compareTo(util.getDate()) < 0) {
-                   overdue = "yes";
-               } else {
-                   overdue = "no";
-               }
-               jLabel4.setText(name);
-               jLabel8.setText(Class);
-               jLabel6.setText(returnDate);
-               jLabel10.setText(overdue);
-            }
-            jLabel11.setText("Book Returned");
-        } catch(Exception e){
+            	while(r.next()){
+               		name = r.getString("Name");
+               		Class = r.getString("Class");
+               		//returned = r.getString("Returned");
+               		dateBorrowed = r.getString("DateBorrowed");
+               		String returnDate = util.getDate(dateBorrowed, Integer.parseInt(util.getServerData("Borrowal Period")));
+               		if (returnDate.compareTo(util.getDate()) < 0)
+                   		overdue = "yes";
+               		else
+                   		overdue = "no";
+
+               		nameOutput.setText(name);
+               		classOutput.setText(Class);
+               		returnDateOutput.setText(returnDate);
+               		overdueOutput.setText(overdue);
+            	}
+            	notifier.setText("Book Returned");
+        } catch(Exception e) {
             e.printStackTrace();
         }
+
         return 1;
-        
     }                                           
 
     /**
@@ -237,20 +238,20 @@ public class ReturnBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel title;
+    private javax.swing.JLabel overdueOutput;
+    private javax.swing.JLabel notifier;
+    private javax.swing.JLabel accNoLabel;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameOutput;
+    private javax.swing.JLabel classLabel;
+    private javax.swing.JLabel returnDateOutput;
+    private javax.swing.JLabel returnDateLabel;
+    private javax.swing.JLabel classOutput;
+    private javax.swing.JLabel overdueLabel;
+    private javax.swing.JSeparator titleSeparator;
+    private javax.swing.JTextField accNoInput;
     // End of variables declaration                   
 }
 

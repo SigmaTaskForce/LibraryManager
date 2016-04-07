@@ -21,10 +21,6 @@ public class Settings extends javax.swing.JFrame {
      */
     public Settings() {
         initComponents();
-        jTextField1.setText(util.getServerData("Username"));
-        jPasswordField1.setText(util.getServerData("Password"));
-        jTextField3.setText(util.getServerData("Server IP"));
-        jTextField4.setText(util.getServerData("Borrowal Period"));
     }
 
     /**
@@ -36,63 +32,55 @@ public class Settings extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        backButton = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
+        titleSeparator = new javax.swing.JSeparator();
+        usernameLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        ipAddressLabel = new javax.swing.JLabel();
+        borrowalPeriodLabel = new javax.swing.JLabel();
+        usernameInput = new javax.swing.JTextField();
+        ipAddressInput = new javax.swing.JTextField();
+        borrowalPeriodInput = new javax.swing.JTextField();
+        submitButton = new javax.swing.JButton();
+        passwordInput = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setText("<");
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        backButton.setText("<");
+        backButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Settings");
+        title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Settings");
 
-        jLabel2.setText("Database Username");
+        usernameLabel.setText("Database Username");
+        usernameInput.setText(util.getServerData("Username"));
 
-        jLabel3.setText("Database Password");
+        passwordLabel.setText("Database Password");
+        passwordInput.setText(util.getServerData("Password"));
 
-        jLabel4.setText("Server IP");
+        ipAddressLabel.setText("Server IP");
+        ipAddressInput.setText(util.getServerData("Server IP"));
 
-        jLabel5.setText("Borrowal Period");
+        borrowalPeriodLabel.setText("Borrowal Period");
+        borrowalPeriodInput.setText(util.getServerData("Borrowal Period"));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        submitButton.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                submitButtonActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton2.setText("Submit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jPasswordField1.setText("jPasswordField1");
+        passwordInput.setText("passwordInput");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,29 +91,29 @@ public class Settings extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
+                            .addComponent(titleSeparator)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(240, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(usernameLabel)
+                            .addComponent(passwordLabel)
+                            .addComponent(ipAddressLabel)
+                            .addComponent(borrowalPeriodLabel))
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                            .addComponent(usernameInput)
+                            .addComponent(ipAddressInput)
+                            .addComponent(borrowalPeriodInput, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                         .addGap(0, 230, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(299, 299, 299))
         );
         layout.setVerticalGroup(
@@ -133,28 +121,28 @@ public class Settings extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usernameLabel)
+                    .addComponent(usernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ipAddressLabel)
+                    .addComponent(ipAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(borrowalPeriodLabel)
+                    .addComponent(borrowalPeriodInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(82, 82, 82)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
@@ -162,34 +150,46 @@ public class Settings extends javax.swing.JFrame {
 	setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         MainUI.main(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        String username = usernameInput.getText();
+        String password = new String(passwordInput.getPassword());
+        String ipAddress = ipAddressInput.getText();
+        String borrowalPeriod = borrowalPeriodInput.getText();
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        if(util.testServerConnection(ipAddress,username,password)) {
+        	File file = new File("server.cfg");
+        	file.delete();
+    		try(FileWriter fw = new FileWriter(file, true)) {
+			fw.write("Username="+username+"\n");
+			fw.write("Password="+password+"\n");
+			fw.write("Server IP="+ipAddress+"\n");
+			fw.write("Borrowal Period="+borrowalPeriod);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        fun();
+		usernameInput.setForeground(new java.awt.Color(0, 0, 255));
+		passwordInput.setForeground(new java.awt.Color(0, 0, 255));
+		ipAddressInput.setForeground(new java.awt.Color(0, 0, 255));
+		borrowalPeriodInput.setForeground(new java.awt.Color(0, 0, 255));
+	}
+
+	else {
+		usernameInput.setForeground(new java.awt.Color(255, 0, 0));
+		passwordInput.setForeground(new java.awt.Color(255, 0, 0));
+		ipAddressInput.setForeground(new java.awt.Color(255, 0, 0));
+		borrowalPeriodInput.setForeground(new java.awt.Color(255, 0, 0));
+	}
     }//GEN-LAST:event_jButton2ActionPerformed
-    String s =  "Username=%s\n" +
-                "Password=%s\n" +
-                "Server IP=%s\n" +
-                "Borrowal Period=%s\n";
-    public void fun(){
-    try(FileWriter fw = new FileWriter(new File("server.cfg"), false)) {
-	fw.write(String.format(s,jTextField1.getText(),new String(jPasswordField1.getPassword()),jTextField3.getText(),jTextField4.getText()));
-	} catch(Exception ex) {}
-    }
+
     /**
      * @param args the command line arguments
      */
@@ -215,17 +215,17 @@ public class Settings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel title;
+    private javax.swing.JLabel usernameLabel;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JLabel ipAddressLabel;
+    private javax.swing.JLabel borrowalPeriodLabel;
+    private javax.swing.JPasswordField passwordInput;
+    private javax.swing.JSeparator titleSeparator;
+    private javax.swing.JTextField usernameInput;
+    private javax.swing.JTextField ipAddressInput;
+    private javax.swing.JTextField borrowalPeriodInput;
     // End of variables declaration//GEN-END:variables
 }

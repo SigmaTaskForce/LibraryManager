@@ -8,7 +8,6 @@ package libman;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
-import static libman.util.getResult;
 
 /**
  *
@@ -21,9 +20,8 @@ public class Search extends javax.swing.JFrame {
      */
     public Search() {
         initComponents();
-        fun();
-        jRadioButton1.setSelected(true);
-	
+        addRadioButtons();
+        nameRadioButton.setSelected(true);	
     }
       String[] rbgroup={"Name","Author","Domain","AccNo"};
       String s="Name";
@@ -37,68 +35,68 @@ public class Search extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        buttonGroup = new javax.swing.ButtonGroup();
+        backButton = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
+        chooserLabel = new javax.swing.JLabel();
+        nameRadioButton = new javax.swing.JRadioButton();
+        authorRadioButton = new javax.swing.JRadioButton();
+        domainRadioButton = new javax.swing.JRadioButton();
+        accNoRadioButton = new javax.swing.JRadioButton();
+        searchLabel = new javax.swing.JLabel();
+        searchInput = new javax.swing.JTextField();
+        tableScroll = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        searchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setText("<");
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        backButton.setText("<");
+        backButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Search Books");
+        title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Search Books");
 
-        jLabel2.setText("Search Book using :");
+        chooserLabel.setText("Search Book using :");
 
-        jRadioButton1.setText("Name");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        nameRadioButton.setText("Name");
+        nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                nameRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Author");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        authorRadioButton.setText("Author");
+        authorRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                authorRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Domain");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        domainRadioButton.setText("Domain");
+        domainRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                domainRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setText("AccNo");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        accNoRadioButton.setText("AccNo");
+        accNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                accNoRadioButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Enter Keyword  :");
+        searchLabel.setText("Enter Keyword  :");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,12 +119,17 @@ public class Search extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tableScroll.setViewportView(table);
 
-        jButton2.setText("Search");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                searchButtonActionPerformed(evt);
+            }
+        });
+        searchInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -137,29 +140,29 @@ public class Search extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(tableScroll)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE))
+                        .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(chooserLabel)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(nameRadioButton)
                                 .addGap(26, 26, 26)
-                                .addComponent(jRadioButton2)
+                                .addComponent(authorRadioButton)
                                 .addGap(26, 26, 26)
-                                .addComponent(jRadioButton3)
+                                .addComponent(domainRadioButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton4))
+                                .addComponent(accNoRadioButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(searchLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(searchButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -168,43 +171,43 @@ public class Search extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(chooserLabel)
+                    .addComponent(nameRadioButton)
+                    .addComponent(authorRadioButton)
+                    .addComponent(domainRadioButton)
+                    .addComponent(accNoRadioButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(searchLabel)
+                    .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         MainUI.main(null);
     }                                           
 
-    private int jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private int searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        table.setRowCount(0);
-	 jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        String key = jTextField1.getText();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        tableModel.setRowCount(0);
+	 searchInput.setForeground(new java.awt.Color(0, 0, 0));
+        String key = searchInput.getText();
 	if(key.length() < 3 ){
-		jTextField1.setForeground(new java.awt.Color(255, 0, 0));
+		searchInput.setForeground(new java.awt.Color(255, 0, 0));
 		return 0;	
 	}
         if (s == rbgroup[0]){
@@ -232,22 +235,23 @@ public class Search extends javax.swing.JFrame {
        }
 	return 0;   
     }                                        
-    private int byAccNo(String key){
+
+    private int byAccNo(String key) {
         String q = "select AccNo, Title, Publisher, Price ,Domain from BookDetails where AccNo like '%" + key + "%' && AccNo not in (select AccNo from Borrowed);";
-        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         String[] row = {null, null, null, null, null, null ,null};
-        ResultSet r = getResult("Library", q);
+        ResultSet r = util.getResult("Library", q);
         try {
                	while (r.next()) {
                    row[0] = r.getString("AccNo");
                    row[1] = r.getString("Title");
                    String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && AccNo not in (select AccNo from Borrowed);";
-                   String author = getAuthor(getResult("Library", n));
+                   String author = getAuthor(util.getResult("Library", n));
                    row[2] = author;
                    row[3] = r.getString("Publisher");
                    row[4] = r.getString("Price");
                    row[5] = r.getString("Domain");
-                   table.addRow(row);
+                   tableModel.addRow(row);
                }
 		r.close();
 		util.closecon();
@@ -259,22 +263,23 @@ public class Search extends javax.swing.JFrame {
         }
     	return 1;
     }
-    private int byName(String key){
+
+    private int byName(String key) {
         String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Title like '%"+key+"%' && accno not in (select accno from Borrowed);";
-        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         String[] row = {null, null, null, null, null, null};
-       	ResultSet r = getResult("Library", q);
+       	ResultSet r = util.getResult("Library", q);
 	try{
             while(r.next()){
                 row[0] = r.getString("AccNo");
                 row[1] = r.getString("Title");
                 String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && accno not in (select accno from Borrowed);";
-                String author = getAuthor(getResult("Library", n));
+                String author = getAuthor(util.getResult("Library", n));
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
                 row[4] = r.getString("Price");
                 row[5] = r.getString("Domain");
-                table.addRow(row);
+                tableModel.addRow(row);
             }
 	    r.close();
 	    util.closecon();
@@ -286,22 +291,23 @@ public class Search extends javax.swing.JFrame {
         }
     	return 1;
     }
-    private int byDomain(String key){
+
+    private int byDomain(String key) {
         String q = "select AccNo, Title, Publisher, Price, Domain from BookDetails where Domain like '%"+key+"%' && accno not in (select accno from Borrowed);";
-        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         String[] row = {null, null, null, null, null, null, null};
-        ResultSet r = getResult("Library", q);
+        ResultSet r = util.getResult("Library", q);
            try{
             while(r.next()){
                 row[0] = r.getString("AccNo");
                 row[1] = r.getString("Title");
                 String n = "select AuthorName from Author where AccNo like '"+row[0]+"' && accno not in (select accno from Borrowed);";
-                String author = getAuthor(getResult("Library", n));
+                String author = getAuthor(util.getResult("Library", n));
                 row[2] = author;
                 row[3] = r.getString("Publisher") ;
                 row[4] = r.getString("Price");
                 row[5] = r.getString("Domain");
-                table.addRow(row);
+                tableModel.addRow(row);
             }
 	    r.close();	
 	    util.closecon();
@@ -331,24 +337,24 @@ public class Search extends javax.swing.JFrame {
         }
         return authors;  
     }
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        s=rbgroup[0];
+        s = rbgroup[0];
     }                                             
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void authorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        s=rbgroup[1];
+        s = rbgroup[1];
     }                                             
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void domainRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        s=rbgroup[2];
+        s = rbgroup[2];
     }                                             
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void accNoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        s=rbgroup[3];
+        s = rbgroup[3];
     }                                             
 
     /**
@@ -376,26 +382,26 @@ public class Search extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JLabel title;
+    private javax.swing.JLabel chooserLabel;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JRadioButton nameRadioButton;
+    private javax.swing.JRadioButton authorRadioButton;
+    private javax.swing.JRadioButton domainRadioButton;
+    private javax.swing.JRadioButton accNoRadioButton;
+    private javax.swing.JScrollPane tableScroll;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField searchInput;
     // End of variables declaration                   
    
-    public void fun(){
-        buttonGroup2.add(jRadioButton1);
-        buttonGroup2.add(jRadioButton2);
-        buttonGroup2.add(jRadioButton3);
-        buttonGroup2.add(jRadioButton4);
+    public void addRadioButtons() {
+        buttonGroup.add(nameRadioButton);
+        buttonGroup.add(authorRadioButton);
+        buttonGroup.add(domainRadioButton);
+        buttonGroup.add(accNoRadioButton);
         
     }
 }

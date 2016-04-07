@@ -22,8 +22,8 @@ public class MainUI extends javax.swing.JFrame {
      */
     public MainUI() {
         initComponents();
-        jLabel2.setText("<html> <u>Powered By Sigma</u> </html>");
-        jLabel2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        banner.setText("<html> <u>Powered By Sigma</u> </html>");
+        banner.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 //        jLabel3.setVisible(false);
   //      jPasswordField1.setVisible(false);
     }
@@ -37,74 +37,71 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
+        titleSeparator = new javax.swing.JSeparator();
+        bookStatusButton = new javax.swing.JButton();
+        returnBooksButton = new javax.swing.JButton();
+        borrowBooksButton = new javax.swing.JButton();
+        memberStatusButton = new javax.swing.JButton();
+        searchBookButton = new javax.swing.JButton();
+        banner = new javax.swing.JLabel();
+        settingsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Library Manager");
+        title.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Library Manager");
 
-        jButton3.setText("Books Status");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        bookStatusButton.setText("Books Status");
+        bookStatusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                bookStatusButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Return Books");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        returnBooksButton.setText("Return Books");
+        returnBooksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                returnBooksButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Borrow Books");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        borrowBooksButton.setText("Borrow Books");
+        borrowBooksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                borrowBooksButtonActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Member Status");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        memberStatusButton.setText("Member Status");
+        memberStatusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                memberStatusButtonActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Search Book");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        searchBookButton.setText("Search Book");
+        searchBookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                searchBookButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Powered By Sigma");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        banner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        banner.setText("Powered By Sigma");
+        banner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
+                bannerMouseClicked(evt);
             }
         });
 
-        jButton1.setText("Settings");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        settingsButton.setText("Settings");
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                settingsButtonActionPerformed(evt);
             }
         });
 
@@ -115,50 +112,50 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1)
+                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titleSeparator)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 34, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bookStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(67, 67, 67)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(returnBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(154, 154, 154))
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(settingsButton, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(memberStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(borrowBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(banner)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(settingsButton)
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(borrowBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(memberStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bookStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(returnBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(banner, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -166,72 +163,57 @@ public class MainUI extends javax.swing.JFrame {
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void bookStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         BorrowDetails.main(null);
     }                                        
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void returnBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
 	dispose();
-	ReturnBook.main(null);
+	IdStatus.main(null);
     }                                        
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void borrowBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         Borrow1.main(null);
     }                                        
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void memberStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         ReturnBook.main(null);
     }                                        
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void searchBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         Search.main(null);
     }                                        
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {                                     
+    private void bannerMouseClicked(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         if(Desktop.isDesktopSupported()) { 
             try {
-                Desktop.getDesktop().browse(new URI("https://github.com/SigmaVEC"));
+                Desktop.getDesktop().browse(new URI("https://SigmaVEC.github.io"));
             } catch(Exception e) {
                 e.printStackTrace();
             }
         }
     }                                    
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 	LoginUI.main(this);    
     }                                        
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {                                     
-        // TODO add your handling code here:
-        
-    }                                    
-  /*  void fun(){
-       // String s = new String(jPasswordField1.getPassword());
-        String p = util.getServerData("Password");
-       // if (s.compareTo(p) == 0) {
-            setVisible(false);
-            dispose();
-            Settings.main(null);
-       // } else {
-         //   jPasswordField1.setText("");
-        }
-    }*/
     /**
      * @param args the command line arguments
      */
@@ -241,8 +223,11 @@ public class MainUI extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+	if(!(new File("server.cfg").exists()))
+		Settings.main(null);
+
         try {
-            util.setLookAndFeel();
+            	util.setLookAndFeel();
         } catch(Exception e) {}
         //</editor-fold>
          try {
@@ -261,15 +246,14 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton settingsButton;
+    private javax.swing.JButton bookStatusButton;
+    private javax.swing.JButton returnBooksButton;
+    private javax.swing.JButton borrowBooksButton;
+    private javax.swing.JButton memberStatusButton;
+    private javax.swing.JButton searchBookButton;
+    private javax.swing.JLabel title;
+    private javax.swing.JLabel banner;
+    private javax.swing.JSeparator titleSeparator;
     // End of variables declaration                   
 }
-

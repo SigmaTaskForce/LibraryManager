@@ -6,6 +6,12 @@ import java.io.*;
 import java.sql.*;
 
 public class util {
+	static boolean testServerConnection(String ip,String user,String password) throws SQLException {
+		try(Connection conn=DriverManager.getConnection("jdbc:mysql://"+ip,user,password)) {
+			return conn!=null;
+		}
+	}
+
 	static String getServerData(String choice) {
 		String temp = "";
 		File file = new File("server.cfg");
