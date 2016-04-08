@@ -261,7 +261,7 @@ public class ManageDatabase extends javax.swing.JFrame {
 	year = Integer.parseInt(textFieldYear.getText());
 	domain = textFieldDomain.getText();
 	price = Integer.parseInt(textFieldPrice.getText());
-	q = "Select * from BookDetails where accno like '%"+accno+"%'";
+	q = "Select * from BookDetails where accno = '%"+accno+"%'";
 	ResultSet r = util.getResult("Library", q);
 	try{
 		if(!r.next()) {

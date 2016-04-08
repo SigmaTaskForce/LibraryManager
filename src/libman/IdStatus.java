@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package libman;
-
+import java.sql.ResultSet;
 /**
  *
  * @author root
@@ -156,26 +156,38 @@ public class IdStatus extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
-	String idNo = idInput.getText();
-	String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed WHERE MemberId='"+idNo+"'");
-        String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"'");
-	String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo WHERE MemberId='"+idNo+"'");
-	String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed WHERE MemberId='"+idNo+"'");
-	String studentName = util.SQLQuery("Library","SELECT DISTINCT Name FROM Borrowed WHERE MemberId='"+idNo+"'")[0];
-	String className = util.SQLQuery("Library","SELECT DISTINCT Class FROM Borrowed WHERE MemberId='"+idNo+"'")[0];
-
+	String idNo = idInput.getText(), studentName = "", className = "";
 	tableModel.setRowCount(0);
-
-	for(int i = 0; i < accNo.length; i++) {
-		String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
-		String overdue = "no";
-
-		if(util.getDate().compareTo(returnDate)>0)
-			overdue = "yes";
-		String[] row = new String[] {
-			accNo[i], bookTitle[i], bookPublisher[i], returnDate, overdue
-		};
-		tableModel.addRow(row);
+	boolean flag = true;
+	ResultSet r = util.getResult("Library","SELECT AccNo, DateBorrowed, Name, Class FROM Borrowed WHERE MemberId='"+idNo+"';");
+	String[] row = {null, null, null, null, null};
+	try {
+		while (r.next()) {
+			row[0] = r.getString("AccNo");
+			ResultSet q = util.getResult("Library","SELECT Title, Publisher FROM BookDetails where AccNo = '"+row[0]+"';");
+			q.next();
+			row[1] = q.getString("Title");
+			row[2] = q.getString("publisher");
+			q.close();
+			String returnDate = util.getDate(r.getString("DateBorrowed"), Integer.parseInt(util.getServerData("Borrowal Period")));
+			String overdue = "no";
+			if(util.getDate().compareTo(returnDate)>0)
+				overdue = "yes";
+			row[3] = returnDate;
+			row[4] = overdue;
+			if(flag) {
+				studentName = r.getString("Name");
+				className = r.getString("Class");
+				flag = !flag;			
+			}
+			tableModel.addRow(row);	
+		}
+		r.close();	
+		util.closecon();
+		if( flag && studentName.equals(""))
+			idInput.setText("");	
+	} catch ( Exception e) { 
+		e.printStackTrace();
 	}
 
 	nameOutput.setText(studentName);

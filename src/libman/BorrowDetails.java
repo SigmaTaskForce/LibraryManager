@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package libman;
-
+import java.sql.ResultSet;
 /**
  *
  * @author rahul
@@ -244,23 +244,28 @@ public class BorrowDetails extends javax.swing.JFrame {
 	}
 
 	if(tableModelChoice.equals("issuedBooksTableModel")) {
-		String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed");
-		String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails JOIN Borrowed ON BookDetails.AccNo=Borrowed.AccNo");
-		String[] idNo = util.SQLQuery("Library","SELECT MemberId FROM Borrowed");
-		String[] studentName = util.SQLQuery("Library","SELECT Name FROM Borrowed");
-		String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed");
-		String[] borrowDate = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed");
-
 		issuedBooksTableModel.setRowCount(0);
-		for(int i = 0; i < accNo.length; i++) {
-			String returnDate = util.getDate(borrowDate[i], Integer.parseInt(util.getServerData("Borrowal Period")));
-        	        String overdue = "no";
-        	        if(util.getDate().compareTo(returnDate)>0)
-        	                overdue = "yes";
-			String[] row = new String[] { 
-				accNo[i], bookTitle[i], idNo[i], studentName[i], className[i], returnDate, overdue
-			};
-			issuedBooksTableModel.addRow(row);
+		String[] row = { null, null, null, null, null, null, null };		
+		ResultSet r = util.getResult("Library","select AccNo, MemberId, Name, Class, DateBorrowed from Borrowed;");
+		try {	
+			while(r.next()){
+				row[0] = r.getString("AccNo");
+				ResultSet s = util.getResult("Library","select Title from BookDetails where accno = '"+row[0]+"';");
+				s.next();		
+				row[1] = s.getString("Title");
+				row[2] = r.getString("MemberId");
+				row[3] = r.getString("Name");
+				row[4] = r.getString("Class");
+				row[5] = r.getString("DateBorrowed");
+				String returnDate = util.getDate(row[5], Integer.parseInt(util.getServerData("Borrowal Period")));
+        	       		String overdue = "no";
+        	       		if(util.getDate().compareTo(returnDate)>0)
+        	        	        overdue = "yes";
+				row[6] = overdue;
+				issuedBooksTableModel.addRow(row);
+			}
+		} catch ( Exception e ) {
+			e.printStackTrace();		
 		}
 	}
 

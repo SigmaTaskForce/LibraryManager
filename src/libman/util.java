@@ -125,7 +125,6 @@ public class util {
         	try {
                 	conn = DriverManager.getConnection("jdbc:mysql://"+util.getServerData("Server IP")+"/"+name,util.getServerData("Username"),util.getServerData("Password"));
                 	stmt = conn.createStatement();
-                	//String sql = "SELECT * FROM Author";
                 	ResultSet rs = stmt.executeQuery(q);
                 	return rs;
 			

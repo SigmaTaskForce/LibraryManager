@@ -191,7 +191,6 @@ public class ReturnBook extends javax.swing.JFrame {
             	while(r.next()){
                		name = r.getString("Name");
                		Class = r.getString("Class");
-               		//returned = r.getString("Returned");
                		dateBorrowed = r.getString("DateBorrowed");
                		String returnDate = util.getDate(dateBorrowed, Integer.parseInt(util.getServerData("Borrowal Period")));
                		if (returnDate.compareTo(util.getDate()) < 0)
@@ -204,6 +203,7 @@ public class ReturnBook extends javax.swing.JFrame {
                		returnDateOutput.setText(returnDate);
                		overdueOutput.setText(overdue);
             	}
+		notifier.setForeground(new java.awt.Color(0, 0, 255));
             	notifier.setText("Book Returned");
         } catch(Exception e) {
             e.printStackTrace();
