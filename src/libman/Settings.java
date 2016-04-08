@@ -19,8 +19,9 @@ public class Settings extends javax.swing.JFrame {
     /**
      * Creates new form Settings
      */
-    public Settings() {
-        initComponents();
+    public Settings(javax.swing.JFrame arg) {
+        settingsMenu = arg;
+	initComponents();
     }
 
     /**
@@ -154,7 +155,7 @@ public class Settings extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
-        MainUI.main(null);
+        settingsMenu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -195,7 +196,7 @@ public class Settings extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(javax.swing.JFrame arg) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -211,7 +212,7 @@ public class Settings extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Settings().setVisible(true);
+                new Settings(arg).setVisible(true);
             }
         });
     }
@@ -229,5 +230,6 @@ public class Settings extends javax.swing.JFrame {
     private javax.swing.JTextField usernameInput;
     private javax.swing.JTextField ipAddressInput;
     private javax.swing.JTextField borrowalPeriodInput;
+    private javax.swing.JFrame settingsMenu;
     // End of variables declaration//GEN-END:variables
 }

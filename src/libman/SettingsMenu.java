@@ -105,22 +105,21 @@ public class SettingsMenu extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
 	setVisible(false);
 	dispose();
+	MainUI.main(null);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void manageDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDatabaseButtonActionPerformed
 	mainUI.setVisible(false);
 	mainUI.dispose();
 	setVisible(false);
-	dispose();
-	ManageDatabase.main(null);
+	ManageDatabase.main(this);
     }//GEN-LAST:event_manageDatabaseButtonActionPerformed
 
     private void editSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSettingsButtonActionPerformed
 	mainUI.setVisible(false);
 	mainUI.dispose();
 	setVisible(false);
-	dispose();
-	Settings.main(null);
+	Settings.main(this);
     }//GEN-LAST:event_editSettingsButtonActionPerformed
 
     /**

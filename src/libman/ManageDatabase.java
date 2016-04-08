@@ -16,7 +16,8 @@ public class ManageDatabase extends javax.swing.JFrame {
      * Creates new form ManageDatabase
      */
     ResultSet r=null;
-    public ManageDatabase() {
+    public ManageDatabase(javax.swing.JFrame arg) {
+	settingsMenu = arg;
         initComponents();	
 	getResult();
 	next();
@@ -47,7 +48,7 @@ public class ManageDatabase extends javax.swing.JFrame {
         lPrice = new javax.swing.JLabel();
         textFieldAccno = new javax.swing.JTextField();
         textFieldYear = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         textFieldPrice = new javax.swing.JTextField();
         textFieldTitle = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
@@ -63,11 +64,6 @@ public class ManageDatabase extends javax.swing.JFrame {
         lPublisher.setText("Publisher");
 
         textFieldPublisher.setPreferredSize(new java.awt.Dimension(150, 30));
-        textFieldPublisher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldPublisherActionPerformed(evt);
-            }
-        });
 
         btnBack.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         btnBack.setText("<");
@@ -85,11 +81,6 @@ public class ManageDatabase extends javax.swing.JFrame {
         lManageDatabase.setText("Manage Database");
 
         textFieldDomain.setPreferredSize(new java.awt.Dimension(150, 30));
-        textFieldDomain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldDomainActionPerformed(evt);
-            }
-        });
 
         lYear.setText("Year");
 
@@ -98,20 +89,10 @@ public class ManageDatabase extends javax.swing.JFrame {
         lPrice.setText("Price");
 
         textFieldAccno.setPreferredSize(new java.awt.Dimension(150, 30));
-        textFieldAccno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldAccnoActionPerformed(evt);
-            }
-        });
 
         textFieldYear.setPreferredSize(new java.awt.Dimension(150, 30));
-        textFieldYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldYearActionPerformed(evt);
-            }
-        });
 
-        jLabel3.setText("Title ");
+        title.setText("Title ");
 
         textFieldPrice.setPreferredSize(new java.awt.Dimension(150, 30));
 
@@ -154,7 +135,7 @@ public class ManageDatabase extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lAccno)
-                    .addComponent(jLabel3)
+                    .addComponent(title)
                     .addComponent(lAuthor)
                     .addComponent(lPublisher)
                     .addComponent(lDomain)
@@ -196,7 +177,7 @@ public class ManageDatabase extends javax.swing.JFrame {
                     .addComponent(btnPrev))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(title)
                     .addComponent(textFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -227,28 +208,12 @@ public class ManageDatabase extends javax.swing.JFrame {
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void textFieldPublisherActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         setVisible(false);
         dispose();
-        MainUI.main(null);
+        settingsMenu.setVisible(true);
     }                                        
-
-    private void textFieldDomainActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void textFieldAccnoActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void textFieldYearActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -403,7 +368,7 @@ public class ManageDatabase extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(javax.swing.JFrame arg) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -419,7 +384,7 @@ public class ManageDatabase extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageDatabase().setVisible(true);
+                new ManageDatabase(arg).setVisible(true);
             }
         });
     }
@@ -431,7 +396,7 @@ public class ManageDatabase extends javax.swing.JFrame {
     private javax.swing.JButton btnPrev;
     private javax.swing.JLabel lManageDatabase;
     private javax.swing.JLabel lAccno;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel title;
     private javax.swing.JLabel lAuthor;
     private javax.swing.JLabel lPublisher;
     private javax.swing.JLabel lDomain;
@@ -445,6 +410,7 @@ public class ManageDatabase extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldDomain;
     private javax.swing.JTextField textFieldYear;
     private javax.swing.JTextField textFieldPrice;
+    private javax.swing.JFrame settingsMenu;
     // End of variables declaration                   
 }
 

@@ -25,6 +25,7 @@ public class MainUI extends javax.swing.JFrame {
         initComponents();
         banner.setText("<html> <u>Powered By Sigma</u> </html>");
         banner.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	testConnection();
 //        jLabel3.setVisible(false);
   //      jPasswordField1.setVisible(false);
     }
@@ -225,8 +226,6 @@ public class MainUI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-		if(!(new File("server.cfg")).exists() || !util.testServerConnection(util.getServerData("Server IP"),util.getServerData("Username"),util.getServerData("Password")))
-                	Settings.main(null);
             	util.setLookAndFeel();
         } catch(Exception e) {}
         //</editor-fold>
@@ -243,6 +242,17 @@ public class MainUI extends javax.swing.JFrame {
                 new MainUI().setVisible(true);
             }
         });
+    }
+
+    void testConnection() {
+	try {
+		if(!(new File("server.cfg")).exists() || !util.testServerConnection(util.getServerData("Server IP"),util.getServerData("Username"),util.getServerData("Password"))) {
+			setVisible(false);
+			Settings.main(this);
+		}
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
     }
 
     // Variables declaration - do not modify                     
