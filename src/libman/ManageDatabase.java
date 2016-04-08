@@ -20,8 +20,8 @@ public class ManageDatabase extends javax.swing.JFrame {
         initComponents();	
 	getResult();
 	next();
-	//jTextField2.setWrapStyleWord(true);
-	jTextField2.setCaretPosition(0);	
+	//textFieldTitle.setWrapStyleWord(true);
+	textFieldTitle.setCaretPosition(0);	
     }
 
     /**
@@ -33,107 +33,107 @@ public class ManageDatabase extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        lAuthor = new javax.swing.JLabel();
+        textFieldAuthor = new javax.swing.JTextField();
+        lPublisher = new javax.swing.JLabel();
+        textFieldPublisher = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
+        lDomain = new javax.swing.JLabel();
+        lManageDatabase = new javax.swing.JLabel();
+        textFieldDomain = new javax.swing.JTextField();
+        Separator = new javax.swing.JSeparator();
+        lYear = new javax.swing.JLabel();
+        lAccno = new javax.swing.JLabel();
+        lPrice = new javax.swing.JLabel();
+        textFieldAccno = new javax.swing.JTextField();
+        textFieldYear = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        textFieldPrice = new javax.swing.JTextField();
+        textFieldTitle = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnPrev = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel4.setText("Author");
+        lAuthor.setText("Author");
 
-        jTextField3.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldAuthor.setPreferredSize(new java.awt.Dimension(150, 30));
 
-        jLabel5.setText("Publisher");
+        lPublisher.setText("Publisher");
 
-        jTextField4.setPreferredSize(new java.awt.Dimension(150, 30));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        textFieldPublisher.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldPublisher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                textFieldPublisherActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setText("<");
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        btnBack.setText("<");
+        btnBack.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Domain");
+        lDomain.setText("Domain");
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Database");
+        lManageDatabase.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lManageDatabase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lManageDatabase.setText("Manage Database");
 
-        jTextField5.setPreferredSize(new java.awt.Dimension(150, 30));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        textFieldDomain.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldDomain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                textFieldDomainActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Year");
+        lYear.setText("Year");
 
-        jLabel2.setText("AccNo");
+        lAccno.setText("AccNo");
 
-        jLabel8.setText("Price");
+        lPrice.setText("Price");
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(150, 30));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textFieldAccno.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldAccno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textFieldAccnoActionPerformed(evt);
             }
         });
 
-        jTextField6.setPreferredSize(new java.awt.Dimension(150, 30));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        textFieldYear.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                textFieldYearActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Title ");
 
-        jTextField7.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldPrice.setPreferredSize(new java.awt.Dimension(150, 30));
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(150, 30));
+        textFieldTitle.setPreferredSize(new java.awt.Dimension(150, 30));
 
-        jButton2.setText("Save");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        jButton3.setText(" + ");
-	jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnNext.setText(" + ");
+	btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnNextActionPerformed(evt);
             }
         });
-        jButton4.setText("  -  ");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnPrev.setText("  -  ");
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnPrevActionPerformed(evt);
             }
         });
 
@@ -144,39 +144,39 @@ public class ManageDatabase extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
+                    .addComponent(Separator)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)))
+                        .addComponent(lManageDatabase, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(lAccno)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(lAuthor)
+                    .addComponent(lPublisher)
+                    .addComponent(lDomain)
+                    .addComponent(lYear)
+                    .addComponent(lPrice))
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldPublisher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldAccno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldDomain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(btnPrev)
                 .addGap(121, 121, 121))
             .addGroup(layout.createSequentialGroup()
                 .addGap(336, 336, 336)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -184,42 +184,42 @@ public class ManageDatabase extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lManageDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(lAccno)
+                    .addComponent(textFieldAccno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrev))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lAuthor)
+                    .addComponent(textFieldAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lPublisher)
+                    .addComponent(textFieldPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lDomain)
+                    .addComponent(textFieldDomain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lYear)
+                    .addComponent(textFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lPrice)
+                    .addComponent(textFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -227,39 +227,40 @@ public class ManageDatabase extends javax.swing.JFrame {
 	setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void textFieldPublisherActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         setVisible(false);
         dispose();
         MainUI.main(null);
     }                                        
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void textFieldDomainActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void textFieldAccnoActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void textFieldYearActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-	String accno, title, publisher, authors, domain, year, price, q, p;
-	accno = jTextField1.getText();
-	title = jTextField2.getText();
-	authors = jTextField3.getText();
-	publisher = jTextField4.getText();
-	year = jTextField5.getText();
-	domain = jTextField6.getText();
-	price = jTextField7.getText();
+	String accno, title, publisher, authors, domain, q, p;
+	int year, price;
+	accno = textFieldAccno.getText();
+	title = textFieldTitle.getText();
+	authors = textFieldAuthor.getText();
+	publisher = textFieldPublisher.getText();
+	year = Integer.parseInt(textFieldYear.getText());
+	domain = textFieldDomain.getText();
+	price = Integer.parseInt(textFieldPrice.getText());
 	q = "Select * from BookDetails where accno like '%"+accno+"%'";
 	ResultSet r = util.getResult("Library", q);
 	try{
@@ -268,9 +269,9 @@ public class ManageDatabase extends javax.swing.JFrame {
 			String[] author = authors.split(",");
 			for(int i = 0 ; i < author.length ; i++ ) {
 				String w = "insert into Author values ('"+accno+"', '"+author[i]+"');";
-				util.SQLUpdate(w);		
+				util.SQLUpdate("Library", w);		
 			}
-			util.SQLUpdate(p);
+			util.SQLUpdate("Library", p);
 		
 		} else {
 			String uTitle = "update BookDetails set title = '"+title+"' where AccNo like '"+accno+"';";
@@ -279,15 +280,16 @@ public class ManageDatabase extends javax.swing.JFrame {
 			String uYear = "update BookDetails set year = "+year+" where AccNo like '"+accno+"';";
 			String uPrice = "update BookDetails set price = "+price+" where AccNo like '"+accno+"';";
 			String[] author = authors.split(",");
+			util.SQLUpdate("Library", "delete from Author where accno ='"+accno+"';");
 			for(int i = 0 ; i < author.length ; i++ ) {
 				String w = "insert into Author values ('"+accno+"', '"+author[i]+"');";	
-				util.SQLUpdate(w);	
+				util.SQLUpdate("Library", w);	
 			}
-			util.SQLUpdate(uTitle);
-			util.SQLUpdate(uPublisher);
-			util.SQLUpdate(uDomain);
-			util.SQLUpdate(uYear);
-			util.SQLUpdate(uPrice);
+			util.SQLUpdate("Library", uTitle);
+			util.SQLUpdate("Library", uPublisher);
+			util.SQLUpdate("Library", uDomain);
+			util.SQLUpdate("Library", uYear);
+			util.SQLUpdate("Library", uPrice);
 				
 		}
 		r.close();
@@ -297,11 +299,11 @@ public class ManageDatabase extends javax.swing.JFrame {
 	}
     }                                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
 	next();
     } 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
 	prev();
     }             
@@ -322,20 +324,20 @@ public class ManageDatabase extends javax.swing.JFrame {
                 	row[4] = r.getString("Domain");
                 	row[5] = r.getString("Year");
 			row[6] = r.getString("Price");
-                	jTextField1.setText(row[0]);
-			jTextField2.setText(row[1]);
-			jTextField3.setText(row[2]);
-			jTextField4.setText(row[3]);
-			jTextField5.setText(row[4]);
-			jTextField6.setText(row[5]);
-			jTextField7.setText(row[6]);
-			jTextField1.setCaretPosition(0);
-			jTextField2.setCaretPosition(0);
-			jTextField3.setCaretPosition(0);
-			jTextField4.setCaretPosition(0);
-			jTextField5.setCaretPosition(0);
-			jTextField6.setCaretPosition(0);
-			jTextField7.setCaretPosition(0);
+                	textFieldAccno.setText(row[0]);
+			textFieldTitle.setText(row[1]);
+			textFieldAuthor.setText(row[2]);
+			textFieldPublisher.setText(row[3]);
+			textFieldDomain.setText(row[4]);
+			textFieldYear.setText(row[5]);
+			textFieldPrice.setText(row[6]);
+			textFieldAccno.setCaretPosition(0);
+			textFieldTitle.setCaretPosition(0);
+			textFieldAuthor.setCaretPosition(0);
+			textFieldPublisher.setCaretPosition(0);
+			textFieldDomain.setCaretPosition(0);
+			textFieldYear.setCaretPosition(0);
+			textFieldPrice.setCaretPosition(0);
 		}
         }catch(SQLException se){
             se.printStackTrace();
@@ -357,20 +359,20 @@ public class ManageDatabase extends javax.swing.JFrame {
                 	row[4] = r.getString("Domain");
                 	row[5] = r.getString("Year");
 			row[6] = r.getString("Price");
-                	jTextField1.setText(row[0]);
-			jTextField2.setText(row[1]);
-			jTextField3.setText(row[2]);
-			jTextField4.setText(row[3]);
-			jTextField5.setText(row[4]);
-			jTextField6.setText(row[5]);
-			jTextField7.setText(row[6]);
-			jTextField1.setCaretPosition(0);
-			jTextField2.setCaretPosition(0);
-			jTextField3.setCaretPosition(0);
-			jTextField4.setCaretPosition(0);
-			jTextField5.setCaretPosition(0);
-			jTextField6.setCaretPosition(0);
-			jTextField7.setCaretPosition(0);
+                	textFieldAccno.setText(row[0]);
+			textFieldTitle.setText(row[1]);
+			textFieldAuthor.setText(row[2]);
+			textFieldPublisher.setText(row[3]);
+			textFieldDomain.setText(row[4]);
+			textFieldYear.setText(row[5]);
+			textFieldPrice.setText(row[6]);
+			textFieldAccno.setCaretPosition(0);
+			textFieldTitle.setCaretPosition(0);
+			textFieldAuthor.setCaretPosition(0);
+			textFieldPublisher.setCaretPosition(0);
+			textFieldDomain.setCaretPosition(0);
+			textFieldYear.setCaretPosition(0);
+			textFieldPrice.setCaretPosition(0);
         	}	
 	}catch(SQLException se){
             se.printStackTrace();
@@ -423,26 +425,26 @@ public class ManageDatabase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPrev;
+    private javax.swing.JLabel lManageDatabase;
+    private javax.swing.JLabel lAccno;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel lAuthor;
+    private javax.swing.JLabel lPublisher;
+    private javax.swing.JLabel lDomain;
+    private javax.swing.JLabel lYear;
+    private javax.swing.JLabel lPrice;
+    private javax.swing.JSeparator Separator;
+    private javax.swing.JTextField textFieldAccno;
+    private javax.swing.JTextField textFieldTitle;
+    private javax.swing.JTextField textFieldAuthor;
+    private javax.swing.JTextField textFieldPublisher;
+    private javax.swing.JTextField textFieldDomain;
+    private javax.swing.JTextField textFieldYear;
+    private javax.swing.JTextField textFieldPrice;
     // End of variables declaration                   
 }
 
