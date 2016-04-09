@@ -226,11 +226,12 @@ public class ManageDatabase extends javax.swing.JFrame {
 	year = Integer.parseInt(textFieldYear.getText());
 	domain = textFieldDomain.getText();
 	price = Integer.parseInt(textFieldPrice.getText());
-	q = "Select * from BookDetails where accno = '%"+accno+"%'";
+	q = "Select * from BookDetails where accno = '"+accno+"'";
 	ResultSet r = util.getResult("Library", q);
 	try{
 		if(!r.next()) {
 			p = "insert into BookDetails values ('"+accno+"', '"+title+"', '"+publisher+"', '"+domain+"', '"+year+"', '"+price+"');";
+			System.out.println("insert");
 			String[] author = authors.split(",");
 			for(int i = 0 ; i < author.length ; i++ ) {
 				String w = "insert into Author values ('"+accno+"', '"+author[i]+"');";
@@ -239,6 +240,7 @@ public class ManageDatabase extends javax.swing.JFrame {
 			util.SQLUpdate("Library", p);
 		
 		} else {
+			System.out.println("update");
 			String uTitle = "update BookDetails set title = '"+title+"' where AccNo like '"+accno+"';";
 			String uPublisher = "update BookDetails set publisher = '"+publisher+"' where AccNo like '"+accno+"';";
 			String uDomain = "update BookDetails set domain = '"+domain+"' where AccNo like '"+accno+"';";
