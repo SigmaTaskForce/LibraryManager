@@ -8,7 +8,6 @@ package libman;
 import java.io.File;
 import java.awt.Cursor;
 import java.sql.SQLException;
-import static libman.MainUIold.testServerConnection;
 import java.awt.Desktop;
 import java.net.URI;
 
@@ -183,7 +182,7 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
         dispose();
-        Borrow1.main(null);
+        Borrow.main(null);
     }                                        
 
     private void memberStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {
