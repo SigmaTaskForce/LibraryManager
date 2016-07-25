@@ -1,3 +1,4 @@
 *.class
 *.form
 server.cfg
+*.log

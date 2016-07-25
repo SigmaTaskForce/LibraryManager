@@ -4,7 +4,14 @@
  * and open the template in the editor.
  */
 package libman;
-import java.sql.ResultSet;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 /**
  *
  * @author rahul
@@ -187,8 +194,32 @@ public class BorrowDetails extends javax.swing.JFrame {
 
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
 	try {
-		table.print();
-	} catch(java.awt.print.PrinterException e) {
+		JFileChooser filechooser = new JFileChooser();
+                FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("pdf files (*.pdf)", "pdf");
+        // add filters
+        	filechooser.addChoosableFileFilter(pdfFilter);
+        	filechooser.setFileFilter(pdfFilter);
+		filechooser.showSaveDialog(null);
+                File file = filechooser.getSelectedFile();
+		file = new File(file.toString()+".pdf");
+		Document doc = new Document();
+        	PdfWriter.getInstance(doc, new FileOutputStream(file));
+            	doc.open();
+            	PdfPTable pdfTable = new PdfPTable(table.getColumnCount());
+            	//adding table headers
+            	for (int i = 0; i < table.getColumnCount(); i++) {
+                	pdfTable.addCell(table.getColumnName(i));
+            	}
+            	//extracting data from the JTable and inserting it to PdfPTable
+            	for (int rows = 0; rows < table.getRowCount(); rows++) {
+                	for (int cols = 0; cols < table.getColumnCount(); cols++) {
+               			pdfTable.addCell(table.getModel().getValueAt(rows, cols).toString());
+
+                	}
+            	}
+            	doc.add(pdfTable);
+		doc.close();
+	} catch(Exception e) {
 		e.printStackTrace();
 	}
     }//GEN-LAST:event_printButtonActionPerformed
@@ -220,14 +251,14 @@ public class BorrowDetails extends javax.swing.JFrame {
     private void populateTable(String tableModelChoice) {
     	if(tableModelChoice.equals("allBooksTableModel")) {
 		String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM BookDetails");
-		String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails");
-		String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails");
-		String[] bookPrice = util.SQLQuery("Library","SELECT Price FROM BookDetails");
-		String[] bookDomain = util.SQLQuery("Library","SELECT Domain FROM BookDetails");
+		String[] bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails ORDER BY AccNo");
+		String[] bookPublisher = util.SQLQuery("Library","SELECT Publisher FROM BookDetails ORDER BY AccNo");
+		String[] bookPrice = util.SQLQuery("Library","SELECT Price FROM BookDetails ORDER BY AccNo");
+		String[] bookDomain = util.SQLQuery("Library","SELECT Domain FROM BookDetails ORDER BY AccNo");
 
 		allBooksTableModel.setRowCount(0);
 		for(int i = 0; i < accNo.length; i++) {
-			String[] bookAuthor = util.SQLQuery("Library","SELECT AuthorName FROM Author JOIN BookDetails ON Author.AccNo=BookDetails.AccNo WHERE Author.AccNo='"+accNo[i]+"'");
+			String[] bookAuthor = util.SQLQuery("Library","SELECT AuthorName FROM Author WHERE AccNo='"+accNo[i]+"'");
 			String allAuthors = "";
 			for(int j = 0; j < bookAuthor.length; j++) {
 				if(j > 0)
@@ -244,28 +275,23 @@ public class BorrowDetails extends javax.swing.JFrame {
 	}
 
 	if(tableModelChoice.equals("issuedBooksTableModel")) {
+		String[] accNo = util.SQLQuery("Library","SELECT AccNo FROM Borrowed ORDER BY AccNo, MemberId");
+		String[] memberId = util.SQLQuery("Library","SELECT MemberId FROM Borrowed ORDER BY AccNo, MemberId");
+		String[] name = util.SQLQuery("Library","SELECT Name FROM Borrowed ORDER BY AccNo, MemberId");
+		String[] className = util.SQLQuery("Library","SELECT Class FROM Borrowed ORDER BY AccNo, MemberId");
+		String[] dateBorrowed = util.SQLQuery("Library","SELECT DateBorrowed FROM Borrowed ORDER BY AccNo, MemberId");
+
 		issuedBooksTableModel.setRowCount(0);
-		String[] row = { null, null, null, null, null, null, null };		
-		ResultSet r = util.getResult("Library","select AccNo, MemberId, Name, Class, DateBorrowed from Borrowed;");
-		try {	
-			while(r.next()){
-				row[0] = r.getString("AccNo");
-				ResultSet s = util.getResult("Library","select Title from BookDetails where accno = '"+row[0]+"';");
-				s.next();		
-				row[1] = s.getString("Title");
-				row[2] = r.getString("MemberId");
-				row[3] = r.getString("Name");
-				row[4] = r.getString("Class");
-				row[5] = r.getString("DateBorrowed");
-				String returnDate = util.getDate(row[5], Integer.parseInt(util.getServerData("Borrowal Period")));
-        	       		String overdue = "no";
-        	       		if(util.getDate().compareTo(returnDate)>0)
-        	        	        overdue = "yes";
-				row[6] = overdue;
-				issuedBooksTableModel.addRow(row);
-			}
-		} catch ( Exception e ) {
-			e.printStackTrace();		
+		for(int i = 0; i < accNo.length; i++) {
+			String bookTitle = util.SQLQuery("Library","SELECT Title FROM BookDetails WHERE AccNo='"+accNo[i]+"'")[0];
+			String returnDate = util.getDate(dateBorrowed[i], Integer.parseInt(util.getServerData("Borrowal Period")));
+        		String overdue = "no";
+        		if(util.getDate().compareTo(returnDate) > 0)
+        		        overdue = "yes";
+			String[] row = new String[] {
+				accNo[i], bookTitle, memberId[i], name[i], className[i], dateBorrowed[i], overdue
+			};
+			issuedBooksTableModel.addRow(row);
 		}
 	}
 

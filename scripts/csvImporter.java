@@ -27,8 +27,6 @@ public class csvImporter {
 		File file = filechooser.getSelectedFile();
 
 		try(Scanner sc = new Scanner(file)) {
-			sc.nextLine();
-
 			SQLUpdate("CREATE DATABASE Library");
 			SQLUpdate("Library","CREATE TABLE BookDetails(AccNo text,Title text,Publisher text,Domain text,Year int,Price int)");
 			SQLUpdate("Library","CREATE TABLE Author(AccNo text,AuthorName text)");
@@ -66,15 +64,14 @@ public class csvImporter {
                         try(Statement stmt = conn.createStatement()) {
                                 stmt.executeUpdate(update);
                         } catch(SQLException e) {
-                                System.out.println("--------");
-				try(FileWriter fw = new FileWriter(new File("log"), true)) {
+				try(FileWriter fw = new FileWriter(new File("error.log"), true)) {
 					fw.write(update);
-				} catch(Exception ex) {}
-				//e.printStackTrace();
+				} catch(Exception ex) {
+					e.printStackTrace();
+				}
                         }
                 } catch(SQLException e) {
-                	System.out.println("--------");
-			//e.printStackTrace();
+			e.printStackTrace();
                 }
         }
 }
